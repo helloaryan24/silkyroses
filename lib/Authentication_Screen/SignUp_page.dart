@@ -182,17 +182,17 @@ class Signup_Page extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(Images.loginbg),
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(top: 70, left: 10, right: 10),
+            padding: const EdgeInsets.only(top: 50, left: 10, right: 10),
             child: Container(
               decoration: BoxDecoration(
                   color: AppColors.contcolor4.withOpacity(0.5),
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20))),
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15))),
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.only(
@@ -201,7 +201,7 @@ class Signup_Page extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Sign Up', style: TextStyles.Merribold2),
+                      Text('Sign Up', style: TextStyles.MontserratBold),
                       SizedBox(height: 30),
                       buildInputField(
                         hintText: 'First Name',
@@ -225,11 +225,11 @@ class Signup_Page extends StatelessWidget {
                         children: [
                           Expanded(
                             flex: 2,
-                            child: Container(
+                            child: Container(height: 45,
                               padding: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(5),
                               ),
                               child: DropdownButtonFormField<String>(
                                 decoration: InputDecoration(
@@ -244,7 +244,7 @@ class Signup_Page extends StatelessWidget {
                                           value: code,
                                           child: Text(
                                             code,
-                                            style: TextStyles.Merriblack,
+                                            style: TextStyles.MontserratBold3,
                                           ),
                                         ))
                                     .toList(),
@@ -301,7 +301,7 @@ class Signup_Page extends StatelessWidget {
                                 },
                               )),
                           Text('I agree to the policy and terms.',
-                              style: TextStyles.MerriLight),
+                              style: TextStyles.MontserratMedium2),
                         ],
                       ),
                       SizedBox(height: 20),
@@ -311,7 +311,7 @@ class Signup_Page extends StatelessWidget {
                           signUpController.register();
                         },
                         text: 'Sign Up',
-                        style: TextStyles.Merribold1,
+                        style: TextStyles.MontserratMedium1,
                       ),
                       SizedBox(height: 20),
                       Padding(
@@ -346,9 +346,9 @@ class Signup_Page extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Already have an account? ',
-                                style: TextStyles.MerriLight),
-                            Text('Log in', style: TextStyles.Merribold3),
+                            Text('Already have an account ? ',
+                                style: TextStyles.MontserratMedium2),
+                            Text('Log in', style: TextStyles.MontserratBold2),
                           ],
                         ),
                       ),

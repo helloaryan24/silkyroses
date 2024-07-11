@@ -63,13 +63,13 @@ class _BottomBar_PageState extends State<BottomBar_Page>
         ],
         tabSize: 40,
         tabBarHeight: 50,
-        textStyle: TextStyles.MerriLight2,
+        textStyle: TextStyles.MontserratMedium2,
         tabIconColor: AppColors.whitecolor,
         tabIconSize: 20.0,
         tabIconSelectedSize: 25.0,
         tabSelectedColor: AppColors.whitecolor,
         tabIconSelectedColor: AppColors.blackcolor,
-        tabBarColor: AppColors.contcolor,
+        tabBarColor: AppColors.contcolor4,
         onTabItemSelected: (int value) {
           setState(() {
             _motionTabBarController!.index = value;

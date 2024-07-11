@@ -21,7 +21,7 @@ Widget buildInputField({
 
 }) {
   return SizedBox(
-    height: 50,
+    height: 45,
     width: double.infinity,
     child: TextFormField(
       controller: controller,
@@ -31,7 +31,7 @@ Widget buildInputField({
       style: TextStyle(
         color: Colors.black,
         fontSize: 15,
-        fontFamily: 'MerriweatherRegular',
+        fontFamily: 'MontserratMedium',
       ),
       decoration: InputDecoration(
         filled: true,
@@ -40,22 +40,22 @@ Widget buildInputField({
         hintText: hintText,
         hintStyle: TextStyle(
           color: Colors.grey,
-          fontSize: 15,
-          fontFamily: 'MerriweatherLight',
+          fontSize: 13,
+          fontFamily: 'MontserratRegular',
         ),
-        contentPadding: EdgeInsets.all(15),
+        contentPadding: EdgeInsets.all(8),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: AppColors.Dividercolor,
+            color: AppColors.darkgreycolor,
           ),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: AppColors.Dividercolor,
+            color: AppColors.darkgreycolor.withOpacity(0.5),
           ),
           // borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
         ),
       ),
     ),
@@ -75,7 +75,7 @@ Widget buildNumberInputField({
   FocusNode? nextFocusNode, // Add nextFocusNode to handle focus traversal
 }) {
   return SizedBox(
-    height: 50,
+    height: 45,
     width: double.infinity,
     child: TextFormField(
       controller: controller,
@@ -103,13 +103,13 @@ Widget buildNumberInputField({
           borderSide: BorderSide(
             color: AppColors.Dividercolor,
           ),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.Dividercolor,
           ),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
         ),
       ),
       inputFormatters: maxLength != null && keyboardType == TextInputType.number
@@ -160,7 +160,7 @@ class _InputFieldState extends State<InputFieldPassword> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: 45,
       width: double.infinity,
       child: TextFormField(
         controller: widget.controller,
@@ -170,7 +170,7 @@ class _InputFieldState extends State<InputFieldPassword> {
         style: TextStyle(
           color: Colors.black,
           fontSize: 15,
-          fontFamily: 'MerriweatherRegular',
+          fontFamily: 'MontserratMedium',
         ),
         decoration: InputDecoration(
           filled: true,
@@ -179,27 +179,27 @@ class _InputFieldState extends State<InputFieldPassword> {
           hintText: widget.hintText,
           hintStyle: TextStyle(
             color: Colors.grey,
-            fontSize: 15,
-            fontFamily: 'MerriweatherLight',
+            fontSize: 13,
+            fontFamily: 'MontserratRegular',
           ),
-          contentPadding: EdgeInsets.all(15),
+          contentPadding: EdgeInsets.all(8),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: AppColors.Dividercolor,
+              color: AppColors.darkgreycolor,
             ),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(5),
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: AppColors.Dividercolor,
+              color: AppColors.darkgreycolor.withOpacity(0.5),
             ),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(5),
           ),
           suffixIcon: widget.obscureText
               ? IconButton(
                   icon: Icon(
                     _isObscured ? Icons.visibility : Icons.visibility_off,
-                    color: Colors.grey,
+                    color: Colors.grey,size: 20,
                   ),
                   onPressed: () {
                     setState(() {
@@ -227,7 +227,7 @@ Widget buildDividerText(String text) {
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: Text(
           text,
-          style: TextStyles.MerriLight,
+          style: TextStyles.MontserratMedium,
         ),
       ),
       Expanded(

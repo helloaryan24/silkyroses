@@ -105,6 +105,26 @@ flutter:
     - family: MerriweatherLight
       fonts:
         - asset: assets/Font/Merriweather-Light.otf
+#--------------------------------------
+    - family: MontserratRegular
+      fonts:
+        - asset: assets/Font/Montserrat-Regular.ttf
+
+    - family: MontserratMedium
+      fonts:
+        - asset: assets/Font/Montserrat-Medium.ttf
+
+    - family: MontserratBold
+      fonts:
+        - asset: assets/Font/Montserrat-Bold.ttf
+
+    - family: MontserratSemiBold
+      fonts:
+        - asset: assets/Font/Montserrat-SemiBold.ttf
+
+    - family: MontserratLight
+      fonts:
+        - asset: assets/Font/Montserrat-Light.ttf
 
 
   #   - family: Trajan Pro

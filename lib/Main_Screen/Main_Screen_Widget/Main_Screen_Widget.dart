@@ -26,13 +26,13 @@ class CustomCarouselSlider extends StatelessWidget {
       padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
       child: CarouselSlider(
         options: CarouselOptions(
-          height: 200,
+          height: 150,
           enlargeCenterPage: true,
           autoPlay: true,
           aspectRatio: 16 / 9,
           autoPlayCurve: Curves.fastOutSlowIn,
           enableInfiniteScroll: true,
-          autoPlayAnimationDuration: const Duration(milliseconds: 1000),
+          autoPlayAnimationDuration: const Duration(milliseconds: 2000),
           viewportFraction: 1,
           onPageChanged: (index, reason) => onPageChanged(index),
         ),
@@ -41,7 +41,7 @@ class CustomCarouselSlider extends StatelessWidget {
             width: double.infinity,
             margin: const EdgeInsets.symmetric(horizontal: 5.0),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(8.0),
               image: DecorationImage(
                 fit: BoxFit.fill,
                 colorFilter: ColorFilter.mode(
@@ -55,11 +55,11 @@ class CustomCarouselSlider extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Get Special offer", style: TextStyles.Merribold5),
+                  Text("Get Special offer", style: TextStyles.MontserratBold5),
                   SizedBox(
                     height: 5,
                   ),
-                  Text("Up to 20%", style: TextStyles.MerriRegular1),
+                  Text("Up to 20%", style: TextStyles.MontserratBold2),
                   SizedBox(
                     height: 30,
                   ),

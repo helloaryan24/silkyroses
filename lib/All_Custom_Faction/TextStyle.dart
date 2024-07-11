@@ -12,8 +12,113 @@ class TextStyles {
       fontSize: 16.0,
       fontFamily: 'MerriweatherRegular',
       color: AppColors.whitecolor);
+//--------------
+  static const TextStyle MontserratRegular = TextStyle(
+      fontSize: 25.0,
+      fontFamily: 'MontserratRegular',
+      color: AppColors.whitecolor);
+
+  static const TextStyle MontserratRegular1 = TextStyle(
+      fontSize: 13.0,
+      fontFamily: 'MontserratRegular',
+      color: AppColors.blackcolor);
 
 
+  static const TextStyle MontserratMedium = TextStyle(
+      fontSize: 15.0,
+      fontFamily: 'MontserratMedium',
+      color: AppColors.whitecolor);
+
+
+
+  static const TextStyle MontserratMedium1 = TextStyle(
+      fontSize: 18.0,
+      fontFamily: 'MontserratMedium',
+      color: AppColors.whitecolor);
+
+  static const TextStyle MontserratMedium2 = TextStyle(
+      fontSize: 12.0,
+      fontFamily: 'MontserratMedium',
+      color: AppColors.whitecolor);
+  static const TextStyle MontserratMedium3 = TextStyle(
+      fontSize: 13.0,
+      fontFamily: 'MontserratMedium',
+      color: AppColors.darkgreycolor);
+
+  static const TextStyle MontserratSemiBold = TextStyle(
+      fontSize: 13.0,
+      fontFamily: 'MontserratSemiBold',
+      color: AppColors.darkgreycolor);
+
+
+  static const TextStyle MontserratSemiBold1 = TextStyle(
+      fontSize: 15.0,
+      fontFamily: 'MontserratSemiBold',
+      color: AppColors.darkgreycolor);
+
+
+  static const TextStyle MontserratSemiBold2 = TextStyle(
+      fontSize: 15.0,
+      fontFamily: 'MontserratSemiBold',
+      color: AppColors.darkgreycolor);
+
+
+  static const TextStyle MontserratBold = TextStyle(
+      fontSize: 25.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.darkgreycolor);
+
+
+  static const TextStyle MontserratBold1 = TextStyle(
+      fontSize: 13.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.blackcolor);
+
+
+  static const TextStyle MontserratBold2 = TextStyle(
+      fontSize: 13.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.whitecolor);
+
+  static const TextStyle MontserratBold3 = TextStyle(
+      fontSize: 15.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.blackcolor);
+
+
+  static const TextStyle MontserratBold4 = TextStyle(
+      fontSize: 12.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.darkgreycolor);
+
+  static const TextStyle MontserratBold5 = TextStyle(
+      fontSize: 25.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.whitecolor);
+
+  static const TextStyle MontserratBold6 = TextStyle(
+      fontSize: 15.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.darkgreycolor);
+
+  static const TextStyle MontserratBold8 = TextStyle(
+      fontSize: 10.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.darkgreycolor);
+
+  static const TextStyle MontserratBold7  = TextStyle(
+      fontSize: 20.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.darkgreycolor);
+
+
+  static const TextStyle MontserratLight = TextStyle(
+      fontSize: 15.0,
+      fontFamily: 'MontserratLight',
+      color: AppColors.greycolor);
+
+
+//------------------------
 
   static const TextStyle MerriRegular2 = TextStyle(
       fontSize: 16.0,
@@ -84,7 +189,7 @@ class TextStyles {
   static const TextStyle Merriblack3 = TextStyle(
       fontSize: 13.0,
       fontFamily: 'MerriweatherBlack',
-      color: AppColors.blackcolor);
+      color: AppColors.darkgreycolor);
 
   static const TextStyle Merriblack4 = TextStyle(
       fontSize: 18.0,

@@ -24,10 +24,11 @@ class Login_Page extends StatelessWidget {
         body: Container(
           width: screenSize.width,
           height: screenSize.height,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(Images.loginbg),
               fit: BoxFit.cover,
+
             ),
           ),
           child: SingleChildScrollView(
@@ -38,20 +39,20 @@ class Login_Page extends StatelessWidget {
               children: [
                 Image.asset(
                   Images.logoimage,
-                  width: 200,
-                  // height: 200,
+                    width: 180,
+
                 ),
                 SizedBox(height: 70),
-                Align(
+               Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Log in', style: TextStyles.Merribold2)),
+                    child: Text('Log in', style: TextStyles.MontserratBold)),
                 SizedBox(height: 20),
                 buildInputField(
                   hintText: 'Email address',
                   controller: loginController.emailController,
                   keyboardType: TextInputType.emailAddress,
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 InputFieldPassword(
                   hintText: 'Password',
                   controller: loginController.passwordController,
@@ -64,15 +65,7 @@ class Login_Page extends StatelessWidget {
                     onTap: () {
                       // loginController.forgetpassword();
                     },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text('Forgot your ', style: TextStyles.MerriLight),
-                        Text('Password? Click here',
-                            style: TextStyles.Merribold3),
-                      ],
-                    ),
+                    child: Text('Forgot your Password?', style: TextStyles.MontserratBold1),
                   ),
                 ),
                 SizedBox(height: 40),
@@ -82,7 +75,7 @@ class Login_Page extends StatelessWidget {
                     loginController.loginIn();
                   },
                   text: 'Log in',
-                  style: TextStyles.Merribold1,
+                  style: TextStyles.MontserratMedium1,
                 ),
                 SizedBox(height: 20),
                 Padding(
@@ -118,27 +111,14 @@ class Login_Page extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 30),
-                // Align(
-                //     alignment: Alignment.center,
-                //     child: Text('OR', style: TextStyles.MerriLight1)),
-                // SizedBox(height: 15),
-                // CustomButton1(
-                //   backgroundColor: AppColors.contcolor1,
-                //   onTap: () {
-                //     loginController.signindone();
-                //
-                //     // Handle continue as guest logic
-                //   },
-                //   text: 'Continue as a guest',
-                //   style: TextStyles.Merribold4,
-                // ),
+
                 CustomButton5(
                   backgroundColor: AppColors.contcolor4,
                   onTap: () {
                     loginController.signindone();
                   },
                   text: 'Continue as a guest',
-                  style: TextStyles.Merribold1,
+                  style: TextStyles.MontserratMedium1,
                 ),
                 SizedBox(height: 20),
                 GestureDetector(
@@ -148,9 +128,11 @@ class Login_Page extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Don\'t have ', style: TextStyles.MerriLight),
-                      Text('an account ? Sign up',
-                          style: TextStyles.Merribold3),
+                      Text('Don\'t have an account ? ', style: TextStyles.MontserratMedium2,
+                      ),
+                      Text('Sign up',
+                        style: TextStyles.MontserratBold2,
+                      ),
                     ],
                   ),
                 ),

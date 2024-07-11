@@ -58,16 +58,12 @@ class Cart_Page extends StatelessWidget {
                                             MainAxisAlignment.spaceAround,
                                         children: [
                                           Container(
-                                            width: 120,
-                                            height: 120,
-                                            alignment: Alignment.topLeft,
+                                            width: 100,
+                                            height: 100,
+                                            alignment: Alignment.bottomRight,
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(10),
-                                              border: Border.all(
-                                                width: 1,
-                                                color: AppColors.Dividercolor,
-                                              ),
                                               image: DecorationImage(
                                                 image: AssetImage(
                                                     Images.homelistroseimg),
@@ -75,15 +71,6 @@ class Cart_Page extends StatelessWidget {
                                               ),
                                               color:
                                                   Colors.white.withOpacity(0.5),
-                                            ),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(2.0),
-                                              child: Icon(
-                                                Icons.favorite,
-                                                size: 20,
-                                                color: Colors.red,
-                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -111,26 +98,42 @@ class Cart_Page extends StatelessWidget {
                                                       Text(
                                                         item.name,
                                                         style: TextStyles
-                                                            .Merriblack4,
+                                                            .MontserratSemiBold,
                                                       ),
-                                                      GestureDetector(
-                                                        onTap: () {
-                                                          cartController
-                                                              .removeItem(
-                                                                  index);
-                                                        },
-                                                        child: Icon(
-                                                          Icons.delete,
-                                                          color: AppColors
-                                                              .contcolor,
+                                                      SizedBox(height: 30,width: 30,
+                                                        child: ElevatedButton(
+                                                          onPressed: () {
+                                                            cartController
+                                                                .removeItem(
+                                                                index);
+                                                          },
+
+                                                          child: Icon(
+                                                              size: 15,
+                                                              Icons.favorite
+                                                          ),
+                                                          style: ElevatedButton
+                                                              .styleFrom(
+                                                            shape: CircleBorder(),
+                                                            elevation: 2,
+                                                            padding:
+                                                            EdgeInsets.all(
+                                                                2),
+                                                            backgroundColor:
+                                                            Colors.white,
+                                                            // <-- Button color
+                                                            foregroundColor: Colors
+                                                                .red, // <-- Splash color
+                                                          ),
                                                         ),
                                                       ),
+
                                                     ],
                                                   ),
                                                   Text(
                                                     "\$ ${item.price}",
                                                     style:
-                                                        TextStyles.Merriblack,
+                                                        TextStyles.MontserratSemiBold2,
                                                   ),
                                                   SizedBox(
                                                     height: 5,
@@ -140,7 +143,7 @@ class Cart_Page extends StatelessWidget {
                                                       Text(
                                                         'in stock',
                                                         style: TextStyles
-                                                            .Merriblack2,
+                                                            .MontserratBold8,
                                                       ),
                                                       SizedBox(
                                                         width: 10,
@@ -148,7 +151,7 @@ class Cart_Page extends StatelessWidget {
                                                       Obx(() => Text(
                                                             'Quantity: ${item.quantity.value}',
                                                             style: TextStyles
-                                                                .Merriblack5,
+                                                                .MontserratBold8,
                                                           )),
                                                     ],
                                                   ),
@@ -160,7 +163,7 @@ class Cart_Page extends StatelessWidget {
                                                     height: 40,
                                                     alignment: Alignment.center,
                                                     decoration: BoxDecoration(
-                                                      color: AppColors.contcolor
+                                                      color: AppColors.contcolor5
                                                           .withOpacity(0.1),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -178,7 +181,7 @@ class Cart_Page extends StatelessWidget {
                                                           icon: Icon(
                                                               Icons.remove,
                                                               color: AppColors
-                                                                  .contcolor),
+                                                                  .contcolor5),
                                                           onPressed: () {
                                                             cartController
                                                                 .decrementQuantity(
@@ -202,7 +205,7 @@ class Cart_Page extends StatelessWidget {
                                                         IconButton(
                                                           icon: Icon(Icons.add,
                                                               color: AppColors
-                                                                  .contcolor),
+                                                                  .contcolor5),
                                                           onPressed: () {
                                                             cartController
                                                                 .incrementQuantity(
@@ -235,7 +238,7 @@ class Cart_Page extends StatelessWidget {
                     color: AppColors.contcolor3,
                     borderRadius: BorderRadius.all(Radius.circular(30),
                     ),
-                    border: Border.all(color: AppColors.Dividercolor, width: 3),
+                    // border: Border.all(color: AppColors.Dividercolor, width: 3),
                   ),
                   child: Padding(
                     padding: EdgeInsets.all(15.0),
@@ -248,7 +251,7 @@ class Cart_Page extends StatelessWidget {
                         ),
                         Text(
                           'Price details',
-                          style: TextStyles.Merriblack1,
+                          style: TextStyles.MontserratSemiBold1,
                         ),
                         SizedBox(
                           height: 5,
@@ -279,11 +282,11 @@ class Cart_Page extends StatelessWidget {
                                       children: [
                                         Text(
                                           "${item.name}    x${item.quantity.value}",
-                                          style: TextStyles.MerriLight4,
+                                          style: TextStyles.MontserratMedium3,
                                         ),
                                         Text(
                                           "${item.price * item.quantity.value} \$",
-                                          style: TextStyles.MerriLight4,
+                                          style: TextStyles.MontserratMedium3,
                                         ),
                                       ],
                                     ),
@@ -294,25 +297,6 @@ class Cart_Page extends StatelessWidget {
                           ),
                         ),
 
-                        // ...cartController.items.map((item) {
-                        //   return Row(
-                        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //     children: [
-                        //       Obx(
-                        //         () => Text(
-                        //           "${item.name}    x${item.quantity.value}",
-                        //           style: TextStyles.MerriLight4,
-                        //         ),
-                        //       ),
-                        //       Obx(
-                        //         () => Text(
-                        //           "${item.price * item.quantity.value}",
-                        //           style: TextStyles.MerriLight4,
-                        //         ),
-                        //       ),
-                        //     ],
-                        //   );
-                        // }).toList(),
                         Divider(
                           color: AppColors.Dividercolor,
                           height: 10,
@@ -321,17 +305,17 @@ class Cart_Page extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Subtotal", style: TextStyles.MerriLight3),
+                            Text("Subtotal", style: TextStyles.MontserratRegular1),
                             Obx(() => Text(
                                 "${cartController.totalAmount.value} \$",
-                                style: TextStyles.MerriLight4)),
+                                style: TextStyles.MontserratMedium3)),
                           ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Delivery Fee", style: TextStyles.MerriLight3),
-                            Text("Free", style: TextStyles.MerriLight4),
+                            Text("Delivery Fee", style: TextStyles.MontserratRegular1),
+                            Text("Free", style: TextStyles.MontserratRegular1),
                           ],
                         ),
                         Container(
@@ -348,11 +332,11 @@ class Cart_Page extends StatelessWidget {
                               children: [
                                 Text(
                                   "Total",
-                                  style: TextStyles.Merriblack4,
+                                  style: TextStyles.MontserratBold3,
                                 ),
                                 Obx(() => Text(
                                       "${cartController.totalAmount.value} \$",
-                                      style: TextStyles.Merriblack,
+                                      style: TextStyles.MontserratBold3,
                                     )),
                               ],
                             ),
@@ -361,14 +345,14 @@ class Cart_Page extends StatelessWidget {
                         SizedBox(
                           height: 5,
                         ),
-                        CustomButton(
+                        CustomButton5(
                           backgroundColor: AppColors.contcolor,
                           onTap: () {
                             Get.toNamed('/Check_out_page');
                             // Add checkout logic here
                           },
                           text: 'Checkout',
-                          style: TextStyles.Merribold1,
+                          style: TextStyles.MontserratMedium1,
                         ),
                       ],
                     ),

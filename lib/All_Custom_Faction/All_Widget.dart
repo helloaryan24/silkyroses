@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -31,14 +33,29 @@ class CustomButton5 extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 45,
+        height: 43,
         child: Container(
           alignment: Alignment.center,
           padding: EdgeInsets.all(8.0),
           decoration: BoxDecoration(
             color: backgroundColor,
             // border: Border.all(width: 2,color: Colors.black),
-            borderRadius: BorderRadius.circular(30.0),
+            boxShadow:[
+              BoxShadow(
+                color: Colors.black45, //color of shadow
+                blurRadius: 1, // blur radius
+                offset: Offset(0, 2), // changes position of shadow
+              ),
+            ],
+            borderRadius: BorderRadius.circular(3.0),
+            gradient: LinearGradient(
+              colors: [
+                AppColors.contcolor4,
+                AppColors.contcolor5,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
           ),
           child: Text(
             text,
@@ -181,6 +198,7 @@ class CustomButton2 extends StatelessWidget {
     );
   }
 }
+
 class CustomButton3 extends StatelessWidget {
   final String text;
   final Color backgroundColor;
@@ -215,6 +233,7 @@ class CustomButton3 extends StatelessWidget {
     );
   }
 }
+
 class CustomButton4 extends StatelessWidget {
   final String text;
   final Color backgroundColor;
@@ -236,10 +255,9 @@ class CustomButton4 extends StatelessWidget {
         height: 45,
         padding: EdgeInsets.only(left: 10, right: 10),
         decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(30.0),
-          border: Border.all(width: 2,color: AppColors.contcolor)
-        ),
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(30.0),
+            border: Border.all(width: 2, color: AppColors.contcolor)),
         alignment: Alignment.center,
         child: Text(
           text,
@@ -250,7 +268,6 @@ class CustomButton4 extends StatelessWidget {
     );
   }
 }
-
 
 class SuffixIconWidget extends StatelessWidget {
   final ProductsController controller = Get.find<ProductsController>();
@@ -415,7 +432,10 @@ class CustomAppbarWidget extends StatelessWidget {
     );
   }
 }
-Widget customAppbarhomescreen(BuildContext context,) {
+
+Widget customAppbarhomescreen(
+  BuildContext context,
+) {
   final screenSize = MediaQuery.of(context).size;
 
   return Row(
@@ -427,8 +447,12 @@ Widget customAppbarhomescreen(BuildContext context,) {
       ),
       Image.asset(
         Images.logoimage,
-        width: screenSize.width * 0.5,
+        width: 180,
       ),
+      // Image.asset(
+      //   Images.logoimage,
+      //   width: screenSize.width * 0.5,
+      // ),
       Container(
         height: 40,
         width: 40,
@@ -436,6 +460,7 @@ Widget customAppbarhomescreen(BuildContext context,) {
     ],
   );
 }
+
 void showInvalidFormatDialog() {
   Get.dialog(
     barrierDismissible: false,

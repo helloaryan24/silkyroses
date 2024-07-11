@@ -95,37 +95,50 @@ class _Home_PageState extends State<Home_Page> {
 
   final HomeController controller = Get.put(HomeController());
 
-
   @override
   Widget build(BuildContext context) {
     final screenSize = ScreenSize(context);
 
     return SafeArea(
-        child: Scaffold(
-          backgroundColor: AppColors.contcolor2,
-          body: SingleChildScrollView(
+      child: Scaffold(
+        backgroundColor: AppColors.contcolor2,
+        body: Container(
+          width: screenSize.width,
+          height: double.infinity,
+          // decoration: BoxDecoration(
+          //     gradient: LinearGradient(
+          //       begin: Alignment.topCenter,
+          //       end: Alignment.bottomCenter,
+          //       colors: <Color>[
+          //         AppColors.contcolor2,
+          //         AppColors.bgcolor,
+          //       ],
+          //   ),
+          //   // image: DecorationImage(
+          //   //   image: AssetImage(Images.loginbg),fit: BoxFit.cover,
+          //   //
+          //   // ),
+          // ),
+          child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(top: 20, bottom: 20),
+              padding: const EdgeInsets.only(top: 10, bottom: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 10,right: 10),
+                    padding: const EdgeInsets.only(left: 10, right: 10),
                     child: customAppbarhomescreen(context),
                   ),
                   SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Container(
-                      height: 50,
+                      height: 45,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        border:
-                            Border.all(width: 2, color: AppColors.Dividercolor),
-                      ),
+                        borderRadius: BorderRadius.circular(8),),
                       child: TextField(
                         controller: _textEditingController,
                         focusNode: _focusNode,
@@ -139,18 +152,10 @@ class _Home_PageState extends State<Home_Page> {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
-                          fontFamily: 'MerriweatherRegular',
+                          fontFamily: 'MontserratMedium',
                         ),
+
                         decoration: InputDecoration(
-                          border: InputBorder.none,
-                          contentPadding: const EdgeInsets.only(
-                              top: 11, bottom: 5, left: 15, right: 0),
-                          hintText: "Search here..",
-                          hintStyle: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 15,
-                            fontFamily: 'MerriweatherLight',
-                          ),
                           prefixIcon: IconButton(
                             onPressed: () {},
                             icon: Icon(
@@ -173,6 +178,29 @@ class _Home_PageState extends State<Home_Page> {
                               ),
                             ),
                           ),
+                          filled: true,
+                          fillColor: AppColors.whitecolor,
+                          border: InputBorder.none,
+                          hintText: "Search here...",
+                          hintStyle: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 13,
+                            fontFamily: 'MontserratRegular',
+                          ),
+                          contentPadding: EdgeInsets.all(8),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: AppColors.darkgreycolor.withOpacity(0.2),
+                            ),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: AppColors.darkgreycolor.withOpacity(0.2),
+                            ),
+                            // borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(5),
+                          ),
                         ),
                       ),
                     ),
@@ -184,8 +212,8 @@ class _Home_PageState extends State<Home_Page> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Special Offer", style: TextStyles.Merriblack1),
-                        Text("View all", style: TextStyles.Merriblack2),
+                        Text("Special Offer", style: TextStyles.MontserratSemiBold1),
+                        Text("View all", style: TextStyles.MontserratBold4),
                       ],
                     ),
                   ),
@@ -201,13 +229,13 @@ class _Home_PageState extends State<Home_Page> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Categories", style: TextStyles.Merriblack1),
+                        Text("Categories", style: TextStyles.MontserratSemiBold1),
                         GestureDetector(
                             onTap: () {
                               controller.gotoProductsPage();
                             },
-                            child:
-                                Text("View all", style: TextStyles.Merriblack2)),
+                            child: Text("View all",
+                                style: TextStyles.MontserratBold4)),
                       ],
                     ),
                   ),
@@ -233,8 +261,17 @@ class _Home_PageState extends State<Home_Page> {
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: AppColors.imgbgcolor,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black38,
+                                          blurRadius: 2,
+                                          spreadRadius: 1
+                                        ),
+                                      ],
                                       border: Border.all(
-                                          width: 1, color: AppColors.contcolor)),
+                                          width: 0.2,
+                                          color: AppColors.contcolor)
+                                  ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(5.0),
                                     child: ClipRRect(
@@ -247,7 +284,7 @@ class _Home_PageState extends State<Home_Page> {
                                 ),
                                 SizedBox(height: 10),
                                 Text(controller.interests[index],
-                                    style: TextStyles.Merriblack3),
+                                    style: TextStyles.MontserratMedium3),
                               ],
                             ),
                           );
@@ -263,13 +300,13 @@ class _Home_PageState extends State<Home_Page> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text("Trends & Popular now",
-                            style: TextStyles.Merriblack1),
+                            style: TextStyles.MontserratSemiBold1),
                         GestureDetector(
                             onTap: () {
                               controller.gotoProductsPage();
-                          },
-                            child:
-                                Text("View all", style: TextStyles.Merriblack2)),
+                            },
+                            child: Text("View all",
+                                style: TextStyles.MontserratBold4)),
                       ],
                     ),
                   ),
@@ -283,7 +320,7 @@ class _Home_PageState extends State<Home_Page> {
                         return Padding(
                           padding: const EdgeInsets.all(6.0),
                           child: GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               Get.toNamed('/products_details');
                             },
                             child: Container(
@@ -297,16 +334,15 @@ class _Home_PageState extends State<Home_Page> {
                                     blurRadius: 2,
                                   ),
                                 ],
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(
-                                    width: 2, color: AppColors.Dividercolor),
+                                borderRadius: BorderRadius.circular(5),
+
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.only(
                                     left: 10, right: 10, top: 5, bottom: 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Image.asset(
                                       Images.homelistroseimg,
@@ -320,7 +356,7 @@ class _Home_PageState extends State<Home_Page> {
                                     Flexible(
                                       child: Text(
                                         'Bouquet “Autumn"',
-                                        style: TextStyles.Merriblack3,
+                                        style: TextStyles.MontserratSemiBold,
                                         textAlign: TextAlign.center,
                                         maxLines: 1,
                                         // Allows text to wrap to a second line
@@ -331,7 +367,7 @@ class _Home_PageState extends State<Home_Page> {
                                     Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text("₹ 150 ",
-                                            style: TextStyles.Merriblack1)),
+                                            style: TextStyles.MontserratSemiBold2)),
                                   ],
                                 ),
                               ),
@@ -348,12 +384,13 @@ class _Home_PageState extends State<Home_Page> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Halloween theme", style: TextStyles.Merriblack1),
+                        Text("Halloween theme", style: TextStyles.MontserratSemiBold1),
                         GestureDetector(
                             onTap: () {
                               controller.gotoProductsPage();
                             },
-                            child: Text("View all", style: TextStyles.Merriblack2)),
+                            child: Text("View all",
+                                style: TextStyles.MontserratBold4)),
                       ],
                     ),
                   ),
@@ -368,7 +405,7 @@ class _Home_PageState extends State<Home_Page> {
                         return Padding(
                           padding: const EdgeInsets.all(6.0),
                           child: GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               Get.toNamed('/products_details');
                             },
                             child: Container(
@@ -382,16 +419,15 @@ class _Home_PageState extends State<Home_Page> {
                                     blurRadius: 2,
                                   ),
                                 ],
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(
-                                    width: 2, color: AppColors.Dividercolor),
+                                borderRadius: BorderRadius.circular(5),
+
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.only(
                                     left: 10, right: 10, top: 5, bottom: 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Image.asset(
                                       Images.homelistroseimg,
@@ -405,7 +441,7 @@ class _Home_PageState extends State<Home_Page> {
                                     Flexible(
                                       child: Text(
                                         'Bouquet “Autumn"',
-                                        style: TextStyles.Merriblack3,
+                                        style: TextStyles.MontserratSemiBold,
                                         textAlign: TextAlign.center,
                                         maxLines: 1,
                                         // Allows text to wrap to a second line
@@ -413,12 +449,10 @@ class _Home_PageState extends State<Home_Page> {
                                             .visible, // Ensure text is fully shown
                                       ),
                                     ),
-                                    // Text('Bouquet “Autumn"',
-                                    //     style: TextStyles.Merriblack3),
                                     Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text("₹ 150 ",
-                                            style: TextStyles.Merriblack1)),
+                                            style: TextStyles.MontserratSemiBold2)),
                                   ],
                                 ),
                               ),
@@ -435,12 +469,13 @@ class _Home_PageState extends State<Home_Page> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Halloween theme", style: TextStyles.Merriblack1),
+                        Text("Halloween theme", style: TextStyles.MontserratSemiBold1),
                         GestureDetector(
                             onTap: () {
                               controller.gotoProductsPage();
                             },
-                            child: Text("View all", style: TextStyles.Merriblack2)),
+                            child: Text("View all",
+                                style: TextStyles.MontserratBold4)),
                       ],
                     ),
                   ),
@@ -455,7 +490,7 @@ class _Home_PageState extends State<Home_Page> {
                         return Padding(
                           padding: const EdgeInsets.all(6.0),
                           child: GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               Get.toNamed('/products_details');
                             },
                             child: Container(
@@ -469,16 +504,15 @@ class _Home_PageState extends State<Home_Page> {
                                     blurRadius: 2,
                                   ),
                                 ],
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(
-                                    width: 2, color: AppColors.Dividercolor),
+                                borderRadius: BorderRadius.circular(5),
+
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.only(
                                     left: 10, right: 10, top: 5, bottom: 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Image.asset(
                                       Images.homelistroseimg,
@@ -492,7 +526,7 @@ class _Home_PageState extends State<Home_Page> {
                                     Flexible(
                                       child: Text(
                                         'Bouquet “Autumn"',
-                                        style: TextStyles.Merriblack3,
+                                        style: TextStyles.MontserratSemiBold,
                                         textAlign: TextAlign.center,
                                         maxLines: 1,
                                         // Allows text to wrap to a second line
@@ -500,12 +534,10 @@ class _Home_PageState extends State<Home_Page> {
                                             .visible, // Ensure text is fully shown
                                       ),
                                     ),
-                                    // Text('Bouquet “Autumn"',
-                                    //     style: TextStyles.Merriblack3),
                                     Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text("₹ 150 ",
-                                            style: TextStyles.Merriblack1)),
+                                            style: TextStyles.MontserratSemiBold2)),
                                   ],
                                 ),
                               ),
@@ -520,11 +552,10 @@ class _Home_PageState extends State<Home_Page> {
             ),
           ),
         ),
-
+      ),
     );
   }
 }
-
 
 // import 'dart:async';
 // import 'package:avatar_glow/avatar_glow.dart';

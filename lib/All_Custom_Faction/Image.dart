@@ -1,8 +1,9 @@
 class Images {
-  static const String welcomebg = 'assets/Images/welcomebg1.png';
+  static const String welcomebg = 'assets/Images/welcomepagebg.png';
   static const String welcomebg1 = 'assets/Images/welcomepage.png';
-  static const String welcomebg2 = 'assets/Images/removebgwelcomepage.png';
-  static const String loginbg = 'assets/Images/sigininbg4.png';
+  static const String welcomebg2 = 'assets/Images/welcomepagebg.png';
+  static const String welcomebg4 = 'assets/Images/sigininbg4.png';
+  static const String loginbg = 'assets/Images/sigininbg.png';
   static const String signupbg = 'assets/Images/sigininbg3.png';
   static const String logoimage = 'assets/Images/applogo.png';
   static const String logogoogle = 'assets/Images/google.png';

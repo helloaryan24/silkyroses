@@ -18,27 +18,26 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = ScreenSize(context);
 
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.contcolor2,
         body: Padding(
-          padding: EdgeInsets.only(top: 20, bottom: 20, left: 10, right: 10),
+          padding: EdgeInsets.only(top: 10, bottom: 0, left: 10, right: 10),
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 10,right: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: customAppbarhomescreen(context),
               ),
               SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Container(
-                  height: 50,
+                  height: 45,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(width: 2, color: AppColors.Dividercolor),
                   ),
                   child: Obx(
                     () => TextField(
@@ -51,17 +50,17 @@ class SearchPage extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 15,
-                        fontFamily: 'MerriweatherRegular',
+                        fontFamily: 'MontserratMedium',
                       ),
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 11, horizontal: 15),
+                        filled: true,
+                        fillColor: AppColors.whitecolor,
                         hintText: "Search here..",
                         hintStyle: TextStyle(
                           color: Colors.grey,
-                          fontSize: 15,
-                          fontFamily: 'MerriweatherLight',
+                          fontSize: 13,
+                          fontFamily: 'MontserratRegular',
                         ),
                         prefixIcon: GestureDetector(
                           child: Icon(
@@ -79,6 +78,20 @@ class SearchPage extends StatelessWidget {
                             color: AppColors.blackcolor.withOpacity(0.8),
                           ),
                         ),
+                        contentPadding: EdgeInsets.all(8),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: AppColors.darkgreycolor.withOpacity(0.2),
+                          ),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: AppColors.darkgreycolor.withOpacity(0.2),
+                          ),
+                          // borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
                       ),
                     ),
                   ),
@@ -90,7 +103,7 @@ class SearchPage extends StatelessWidget {
                   return searchController.text.value.isEmpty
                       ? Center(
                           child: Text('Please search for products.',
-                              style: TextStyles.Merriblack4))
+                              style: TextStyles.MontserratBold7))
                       : ListView.builder(
                           padding: EdgeInsets.all(10),
                           itemCount: searchController.imageGridViewurl.length,
@@ -98,7 +111,7 @@ class SearchPage extends StatelessWidget {
                             return Obx(() => Padding(
                                   padding: const EdgeInsets.all(5.0),
                                   child: GestureDetector(
-                                    onTap: (){
+                                    onTap: () {
                                       Get.toNamed('/products_details');
                                     },
                                     child: Container(
@@ -106,13 +119,11 @@ class SearchPage extends StatelessWidget {
                                       width: screenSize.width,
                                       decoration: BoxDecoration(
                                         color: AppColors.whitecolor,
-                                        borderRadius: BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(5),
                                         boxShadow: [
                                           BoxShadow(
-                                            color: AppColors.greycolor
-                                                .withOpacity(0.5),
-                                            spreadRadius: 1,
-                                            blurRadius: 1,
+                                            color: Colors.black12,
+                                            blurRadius: 2,
                                           ),
                                         ],
                                       ),
@@ -128,11 +139,7 @@ class SearchPage extends StatelessWidget {
                                             alignment: Alignment.bottomRight,
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                width: 1,
-                                                color: AppColors.Dividercolor,
-                                              ),
+                                                  BorderRadius.circular(5),
                                               image: DecorationImage(
                                                 image: AssetImage(
                                                     Images.homelistroseimg),
@@ -141,8 +148,46 @@ class SearchPage extends StatelessWidget {
                                               color:
                                                   Colors.white.withOpacity(0.5),
                                             ),
+                                            child: SizedBox(height: 35,width: 35,
+                                              child: ElevatedButton(
+                                                onPressed: () {
+                                                  searchController
+                                                      .toggleIconState(
+                                                      index);
+                                                },
+                                                child: Icon(
+                                                  size: 18,
+                                                  searchController
+                                                      .iconFilledState[
+                                                  index]
+                                                      ? Icons.favorite
+                                                      : Icons
+                                                      .favorite_border,
+                                                  color: searchController
+                                                      .iconFilledState[
+                                                  index]
+                                                      ? Colors.red
+                                                      : Colors.red,
+                                                ),
+                                                style: ElevatedButton
+                                                    .styleFrom(
+                                                  shape: CircleBorder(),
+                                                  elevation: 2,
+                                                  padding:
+                                                  EdgeInsets.all(
+                                                      5),
+                                                  backgroundColor:
+                                                  Colors.white,
+                                                  // <-- Button color
+                                                  foregroundColor: Colors
+                                                      .red, // <-- Splash color
+                                                ),
+                                              ),
+                                            ),
                                           ),
-                                          SizedBox(width: 5,),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
                                           Expanded(
                                             child: Column(
                                               crossAxisAlignment:
@@ -150,92 +195,29 @@ class SearchPage extends StatelessWidget {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
                                               children: [
-                                                SizedBox(height: 5,),
+                                                SizedBox(
+                                                  height: 5,
+                                                ),
                                                 Text(
                                                     searchController
                                                         .GridViewNames[index],
                                                     style:
-                                                        TextStyles.Merriblack4),
+                                                        TextStyles.MontserratSemiBold),
                                                 SizedBox(height: 5),
                                                 Text(
                                                   searchController
                                                       .GridViewprices[index],
-                                                  style: TextStyles.Merriblack,
+                                                  style: TextStyles.MontserratSemiBold2,
                                                 ),
                                                 SizedBox(height: 5),
                                                 FlutterRating(
                                                   rating: 4.5,
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.start,
-                                                  size: 18,
+                                                  size: 15,
                                                   borderColor: Colors.amber,
                                                   allowHalfRating: true,
                                                 ),
-                                                SizedBox(height: 5),
-                                                SizedBox(
-                                                  height: 50,
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.end,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment.center,
-                                                    children: [
-                                                      ElevatedButton(
-                                                        onPressed: () {
-                                                          searchController
-                                                              .toggleIconState(
-                                                                  index);
-                                                        },
-                                                        child: Icon(
-                                                          size: 22,
-                                                          searchController
-                                                                      .iconFilledState[
-                                                                  index]
-                                                              ? Icons.favorite
-                                                              : Icons
-                                                                  .favorite_border,
-                                                          color: searchController
-                                                                      .iconFilledState[
-                                                                  index]
-                                                              ? Colors.red
-                                                              : Colors.red,
-                                                        ),
-                                                        style: ElevatedButton
-                                                            .styleFrom(
-                                                          shape: CircleBorder(),
-                                                          elevation: 2,
-                                                          padding:
-                                                              EdgeInsets.all(10),
-                                                          backgroundColor:
-                                                              Colors.white,
-                                                          // <-- Button color
-                                                          foregroundColor: Colors
-                                                              .red, // <-- Splash color
-                                                        ),
-                                                      ),
-                                                      ElevatedButton(
-                                                        onPressed: () {},
-                                                        child: Icon(
-                                                            Icons.shopping_cart,
-                                                            color: Colors.white),
-                                                        style: ElevatedButton
-                                                            .styleFrom(
-                                                          shape: CircleBorder(),
-                                                          elevation: 2,
-                                                          padding:
-                                                              EdgeInsets.all(10),
-                                                          backgroundColor:
-                                                              AppColors.contcolor,
-                                                          // <-- Button color
-                                                          foregroundColor: Colors
-                                                              .red, // <-- Splash color
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-
-
                                               ],
                                             ),
                                           ),
