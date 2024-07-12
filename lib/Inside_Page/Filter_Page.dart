@@ -28,7 +28,7 @@ class Filter_Page extends StatelessWidget {
                 children: [
                   Text(
                     "Sort By",
-                    style: TextStyles.Merriblack1,
+                    style: TextStyles.MontserratSemiBold1,
                   ),
                   Divider(
                     height: 30,
@@ -59,24 +59,24 @@ class Filter_Page extends StatelessWidget {
           children: [
             Expanded(
               child: CustomButton(
-                backgroundColor: AppColors.contcolor,
+                backgroundColor: AppColors.contcolor5,
                 onTap: () {
                   controller.resetFilters();
                 },
                 text: 'Reset',
-                style: TextStyles.Merribold1,
+                style: TextStyles.MontserratBold12,
               ),
             ),
             SizedBox(width: 5),
             Expanded(
               child: CustomButton1(
-                backgroundColor: AppColors.contcolor,
+                backgroundColor: AppColors.whitecolor,
                 onTap: () {
                   controller.applyFilters();
                   Get.back();
                 },
                 text: 'Apply',
-                style: TextStyles.Merribold1,
+                style: TextStyles.MontserratBold13,
               ),
             ),
           ],
@@ -90,7 +90,7 @@ class Filter_Page extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(title, style: TextStyles.Merriblack1),
+        Text(title, style: TextStyles.MontserratBold4),
         SizedBox(height: 8.0),
         Obx(() =>
             Wrap(
@@ -98,10 +98,10 @@ class Filter_Page extends StatelessWidget {
               runSpacing: 5,
               children: options.map((option) {
                 return FilterChip(
-                  label: Text(option, style: TextStyles.Merriblack3),
+                  label: Text(option, style: TextStyles.MontserratBold4),
                   backgroundColor: Colors.white,
                   selected: selectedOption.value == option,
-                  selectedColor: AppColors.contcolor.withOpacity(0.2),
+                  selectedColor: AppColors.contcolor5.withOpacity(0.2),
                   // Change color if selected
                   onSelected: (selected) {
                     selectedOption.value = selected ? option : '';
@@ -122,7 +122,7 @@ class Filter_Page extends StatelessWidget {
       children: [
         Text(
           'Color',
-          style: TextStyles.Merriblack1,
+          style: TextStyles.MontserratBold4,
         ),
         SizedBox(height: 8.0),
         Obx(() =>
@@ -134,7 +134,7 @@ class Filter_Page extends StatelessWidget {
                 return FilterChip(
                   backgroundColor: controller.colorMap[option]?.withOpacity(
                       0.5),
-                  label: Text(option, style: TextStyles.Merriblack3),
+                  label: Text(option, style: TextStyles.MontserratBold4),
                   selected: controller.selectedColorOption.value == option,
                   selectedColor: controller.colorMap[option]?.withOpacity(0.5),
                   onSelected: (selected) {
@@ -154,7 +154,7 @@ class Filter_Page extends StatelessWidget {
       children: [
         Text(
           'Type of Followers',
-          style: TextStyles.Merriblack1,
+          style: TextStyles.MontserratBold4,
         ),
         SizedBox(height: 8.0),
         Wrap(
@@ -171,7 +171,7 @@ class Filter_Page extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: controller.selectedFollowerTypeOption.value ==
                           option['name']
-                          ? AppColors.contcolor.withOpacity(
+                          ? AppColors.contcolor5.withOpacity(
                           0.2) // Change color if selected
                           : Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -193,7 +193,7 @@ class Filter_Page extends StatelessWidget {
                           ),
                           Text(
                             option['name'],
-                            style: TextStyles.Merriblack3,
+                            style: TextStyles.MontserratMedium3,
                             textAlign: TextAlign.center,
                             maxLines: 1,
                             overflow: TextOverflow
@@ -216,7 +216,7 @@ class Filter_Page extends StatelessWidget {
       children: [
         Text(
           'Category',
-          style: TextStyles.Merriblack1,
+          style: TextStyles.MontserratBold4,
         ),
         SizedBox(height: 8.0),
         Wrap(
@@ -238,7 +238,7 @@ class Filter_Page extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: controller.selectedCategoryOption.value ==
                               option['name']
-                              ? AppColors.contcolor.withOpacity(
+                              ? AppColors.contcolor5.withOpacity(
                               0.2) // Change color if selected
                               : AppColors.imgbgcolor,
                         ),
@@ -253,7 +253,7 @@ class Filter_Page extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 4.0),
-                      Text(option['name'], style: TextStyles.Merriblack3),
+                      Text(option['name'], style: TextStyles.MontserratMedium3),
                     ],
                   ),
                 ));

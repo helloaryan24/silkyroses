@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_native/flutter_rating_native.dart';
 import 'package:get/get.dart';
@@ -12,7 +13,7 @@ import '../Controller/ProductsDetails_Controller.dart';
 
 class products_details extends StatelessWidget {
   final ProductsDetailsController productsDetailsController =
-  Get.put(ProductsDetailsController());
+      Get.put(ProductsDetailsController());
 
   final PageController _pageController = PageController();
 
@@ -24,23 +25,19 @@ class products_details extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.contcolor2,
         body: SingleChildScrollView(
-          padding: const EdgeInsets.only(top: 30, bottom: 20),
+          padding: const EdgeInsets.only(top: 10, bottom: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   GestureDetector(
                     onTap: () {
                       Get.back();
                     },
-                    child: Image.asset(
-                      Images.backimage,
-                      height: 40,
-                      width: 40,
-                    ),
+                    child: Icon(CupertinoIcons.back),
                   ),
                   Image.asset(
                     Images.logoimage,
@@ -50,11 +47,7 @@ class products_details extends StatelessWidget {
                     onTap: () {
                       // Handle notifications
                     },
-                    child: Image.asset(
-                      Images.notificationimage,
-                      height: 40,
-                      width: 40,
-                    ),
+                    child: Icon(Icons.notifications_active),
                   ),
                 ],
               ),
@@ -73,7 +66,7 @@ class products_details extends StatelessWidget {
                           width: screenSize.width,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Colors.red.withOpacity(0.2),
+                            color: AppColors.contcolor5.withOpacity(0.2),
                             image: DecorationImage(
                               image: AssetImage(images[index]),
                             ),
@@ -93,13 +86,13 @@ class products_details extends StatelessWidget {
                                     color: Colors.white,
                                   ),
                                   child: Obx(
-                                        () => Icon(
+                                    () => Icon(
                                       productsDetailsController.isFavorite.value
                                           ? Icons.favorite
                                           : Icons.favorite_outline,
                                       size: 30,
                                       color: productsDetailsController
-                                          .isFavorite.value
+                                              .isFavorite.value
                                           ? Colors.red
                                           : Colors.grey,
                                     ),
@@ -126,7 +119,7 @@ class products_details extends StatelessWidget {
                   dotHeight: 10,
                   dotWidth: 10,
                   dotColor: Colors.grey.shade400,
-                  activeDotColor: AppColors.contcolor,
+                  activeDotColor: AppColors.contcolor5,
                 ),
               ),
               Padding(
@@ -135,10 +128,8 @@ class products_details extends StatelessWidget {
                   width: screenSize.width,
                   decoration: BoxDecoration(
                     color: AppColors.contcolor3,
-                    borderRadius: BorderRadius.circular(30),
-                    border: Border.all(
-                      color: AppColors.Dividercolor,
-                      width: 3,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
                     ),
                   ),
                   child: Padding(
@@ -150,7 +141,7 @@ class products_details extends StatelessWidget {
                         SizedBox(height: 5),
                         Text(
                           'Bouquet “Autumn”',
-                          style: TextStyles.Merribold4,
+                          style: TextStyles.MontserratBold6,
                         ),
                         Row(
                           children: [
@@ -164,31 +155,29 @@ class products_details extends StatelessWidget {
                             SizedBox(width: 5),
                             Text(
                               "4.89 (41 reviews)",
-                              style: TextStyles.MerriLight3,
+                              style: TextStyles.MontserratBold8,
                             ),
                           ],
-                        ),
-                        SizedBox(height: 10),
-                        Text("Composition:", style: TextStyles.MerriRegular2),
-                        Text(
-                          "5 white flowers, 1 blue flower",
-                          style: TextStyles.MerriLight3,
                         ),
                         SizedBox(height: 10),
                         Row(
                           children: [
                             Text(
                               "\$ 210",
-                              style: TextStyles.Merriblack6,
+                              style: TextStyles.MontserratBold7,
                             ),
                             SizedBox(width: 50),
                             Container(
                               width: 110,
-                              height: 40,
+                              height: 35,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                color: AppColors.contcolor.withOpacity(0.1),
-                                borderRadius: BorderRadius.circular(20),
+                                color: AppColors
+                                    .contcolor5
+                                    .withOpacity(0.1),
+                                borderRadius:
+                                BorderRadius.circular(
+                                    20),
                               ),
                               child: Row(
                                 mainAxisAlignment:
@@ -196,8 +185,10 @@ class products_details extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   IconButton(
-                                    icon: Icon(Icons.remove,
-                                        color: AppColors.contcolor),
+                                    icon: Icon( Icons.remove,
+                                      color: AppColors
+                                          .contcolor5,
+                                      size: 18,),
                                     onPressed: productsDetailsController
                                         .decrementCounter,
                                   ),
@@ -209,13 +200,17 @@ class products_details extends StatelessWidget {
                                     child: Obx(
                                           () => Text(
                                         '${productsDetailsController.counter.value}',
-                                        style: TextStyles.Merriblack5,
+                                        style: TextStyles.MontserratBold8,
                                       ),
                                     ),
                                   ),
                                   IconButton(
-                                    icon: Icon(Icons.add,
-                                        color: AppColors.contcolor),
+                                    icon: Icon(
+                                      Icons.add,
+                                      color: AppColors
+                                          .contcolor5,
+                                      size: 18,
+                                    ),
                                     onPressed: productsDetailsController
                                         .incrementCounter,
                                   )
@@ -224,14 +219,20 @@ class products_details extends StatelessWidget {
                             ),
                           ],
                         ),
+                        SizedBox(height: 10),
+                        Text("Composition:", style: TextStyles.MontserratSemiBold1),
+                        Text(
+                          "5 white flowers, 1 blue flower",
+                          style: TextStyles.MontserratMedium3,
+                        ),
                         Divider(
-                          color: AppColors.Dividercolor,
-                          height: 10,
+                          color: AppColors.contcolor5.withOpacity(0.5),
+                          height: 20,
                           thickness: 1,
                         ),
                         Text(
                           "You Might Also Like:",
-                          style: TextStyles.MerriRegular2,
+                          style: TextStyles.MontserratSemiBold1,
                         ),
                         SizedBox(height: 5),
                         Container(
@@ -248,7 +249,7 @@ class products_details extends StatelessWidget {
                                   color: Colors.white,
                                   border: Border.all(
                                     width: 1,
-                                    color: AppColors.Dividercolor,
+                                    color: AppColors.contcolor5.withOpacity(0.2),
                                   ),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -261,10 +262,10 @@ class products_details extends StatelessWidget {
                               );
                             },
                             gridDelegate:
-                            SliverGridDelegateWithFixedCrossAxisCount(
+                                SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 1, // Number of items per row
                               mainAxisSpacing:
-                              10.0, // Spacing between items vertically
+                                  10.0, // Spacing between items vertically
                             ),
                           ),
                         ),
@@ -281,7 +282,7 @@ class products_details extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Container(
           height: 55,
-          color: AppColors.contcolor.withOpacity(0.2),
+          color: AppColors.whitecolor,
           width: screenSize.width,
           child: Padding(
             padding: const EdgeInsets.all(5.0),
@@ -289,23 +290,23 @@ class products_details extends StatelessWidget {
               children: [
                 Expanded(
                   child: CustomButton(
-                    backgroundColor: AppColors.contcolor,
+                    backgroundColor: AppColors.contcolor5,
                     onTap: () {
                       // Handle Add to Cart
                     },
                     text: 'Add to cart',
-                    style: TextStyles.Merribold1,
+                    style: TextStyles.MontserratBold12,
                   ),
                 ),
                 SizedBox(width: 5),
                 Expanded(
                   child: CustomButton1(
-                    backgroundColor: AppColors.contcolor,
+                    backgroundColor: AppColors.whitecolor,
                     onTap: () {
                       // Handle Buy Now
                     },
-                    text: 'Buy now',
-                    style: TextStyles.Merribold1,
+                    text: 'Buy Now',
+                    style: TextStyles.MontserratBold13,
                   ),
                 ),
               ],

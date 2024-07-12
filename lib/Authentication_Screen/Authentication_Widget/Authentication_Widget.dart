@@ -85,30 +85,30 @@ Widget buildNumberInputField({
       style: TextStyle(
         color: Colors.black,
         fontSize: 15,
-        fontFamily: 'MerriweatherRegular',
+        fontFamily: 'MontserratMedium',
       ),
       decoration: InputDecoration(
         filled: true,
         fillColor: AppColors.whitecolor,
         border: InputBorder.none,
         hintText: hintText,
-
         hintStyle: TextStyle(
           color: Colors.grey,
-          fontSize: 15,
-          fontFamily: 'MerriweatherLight',
+          fontSize: 13,
+          fontFamily: 'MontserratRegular',
         ),
-        contentPadding: EdgeInsets.all(15),
+        contentPadding: EdgeInsets.all(8),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: AppColors.Dividercolor,
+            color: AppColors.darkgreycolor,
           ),
           borderRadius: BorderRadius.circular(5),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: AppColors.Dividercolor,
+            color: AppColors.darkgreycolor.withOpacity(0.5),
           ),
+          // borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(5),
         ),
       ),
@@ -246,13 +246,13 @@ Widget buildSocialLoginButton(String imageAsset, VoidCallback onTap) {
     child: GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 50,
-        width: 60,
+        height: 40,
+        width: 50,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(8),
           color: AppColors.contcolor1,
         ),alignment: Alignment.center,
-        child: Image.asset(imageAsset,height: 30,width: 30,),
+        child: Image.asset(imageAsset,height: 23,width: 23,),
       ),
     ),
   );
@@ -320,7 +320,7 @@ Widget showLottieAnimation(BuildContext context, String url) {
                     message,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 3,
-                    style: TextStyles.Merriblack,
+                    style: TextStyles.MontserratBold3,
                   ),
                 ),
               ),
@@ -347,7 +347,7 @@ Widget showLottieAnimation(BuildContext context, String url) {
                       borderRadius: BorderRadius.circular(50)),
                   child: Text(
                     "OK",
-                    style: TextStyles.Merribold1,
+                    style: TextStyles.MontserratBold12,
                   ),
                 ),
               ),

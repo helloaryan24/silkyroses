@@ -20,31 +20,25 @@ class Check_out_page extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding:
-              const EdgeInsets.only(top: 30, bottom: 20, left: 10, right: 10),
+              const EdgeInsets.only(top: 10, bottom: 20, left: 10, right: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomAppbarWidget(),
-              SizedBox(height: 30),
-              Image.asset(Images.checkoutimgtop, width: screenSize.width),
-              SizedBox(height: 30),
+              SizedBox(height: 10),
               ShippingMethodWidget(),
-              SizedBox(height: 20),
-              Image.asset(Images.dotline, width: screenSize.width),
               SizedBox(height: 20),
               ContactDetailsWidget(),
               SizedBox(height: 20),
-              Image.asset(Images.dotline, width: screenSize.width),
-              SizedBox(height: 20),
               DeliveryInformationWidget(),
               SizedBox(height: 20),
-              CustomButton(
+              CustomButton5(
                 backgroundColor: AppColors.contcolor,
                 onTap: () {
                   checkOutController.submitCheckout();
                 },
                 text: 'Checkout',
-                style: TextStyles.Merribold1,
+                style: TextStyles.MontserratMedium1,
               ),
             ],
           ),
@@ -61,17 +55,17 @@ class ShippingMethodWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: AppColors.whitecolor,
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)),
-          border: Border.all(width: 2, color: AppColors.Dividercolor)),
+        color: AppColors.contcolor3,
+        borderRadius: BorderRadius.all(
+          Radius.circular(10),
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('1. Select shipping method', style: TextStyles.Merriblack1),
+            Text('1. Select shipping method', style: TextStyles.MontserratSemiBold1),
             SizedBox(height: 10),
             Obx(() => RadioListTile(
                   value: 'home_delivery',
@@ -79,34 +73,34 @@ class ShippingMethodWidget extends StatelessWidget {
                   onChanged: (value) {
                     controller.shippingMethod.value = value as String;
                   },
-                  activeColor: AppColors.contcolor,
+                  activeColor: AppColors.contcolor5,
                   title: Text('Home delivery\n(1-3 business days)',
-                      style: TextStyles.Merriblack3),
-                  subtitle: Text('Free', style: TextStyles.MerriLight4),
+                      style: TextStyles.MontserratBold4),
+                  subtitle: Text('Free', style: TextStyles.MontserratSemiBold),
                 )),
             Divider(height: 10, color: AppColors.Dividercolor),
             Obx(() => RadioListTile(
                   value: 'pickup_point',
-                  activeColor: AppColors.contcolor,
+                  activeColor: AppColors.contcolor5,
                   groupValue: controller.shippingMethod.value,
                   onChanged: (value) {
                     controller.shippingMethod.value = value as String;
                   },
                   title: Text('Pickup Point\n(2-5 business days)',
-                      style: TextStyles.Merriblack3),
-                  subtitle: Text('Free', style: TextStyles.MerriLight4),
+                      style: TextStyles.MontserratBold4),
+                  subtitle: Text('Free', style: TextStyles.MontserratSemiBold),
                 )),
             Divider(height: 10, color: AppColors.Dividercolor),
             Obx(() => RadioListTile(
                   value: 'pickup_in_store',
-                  activeColor: AppColors.contcolor,
+                  activeColor: AppColors.contcolor5,
                   groupValue: controller.shippingMethod.value,
                   onChanged: (value) {
                     controller.shippingMethod.value = value as String;
                   },
                   title: Text('Pickup in Store\n(2-5 business days)',
-                      style: TextStyles.Merriblack3),
-                  subtitle: Text('Free', style: TextStyles.MerriLight4),
+                      style: TextStyles.MontserratBold4),
+                  subtitle: Text('Free', style: TextStyles.MontserratSemiBold),
                 )),
           ],
         ),
@@ -126,20 +120,20 @@ class ContactDetailsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: AppColors.whitecolor,
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)),
-          border: Border.all(width: 2, color: AppColors.Dividercolor)),
+        color: AppColors.contcolor3,
+        borderRadius: BorderRadius.all(
+          Radius.circular(10),
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('2. Fill the information below',
-                style: TextStyles.Merriblack1),
+                style: TextStyles.MontserratSemiBold1),
             SizedBox(height: 10),
-            Text('*Contact details', style: TextStyles.Merriblack2),
+            Text('*Contact details', style: TextStyles.MontserratSemiBold),
             SizedBox(height: 20),
             buildInputField(
                 hintText: 'First name',
@@ -179,17 +173,17 @@ class DeliveryInformationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: AppColors.whitecolor,
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)),
-          border: Border.all(width: 2, color: AppColors.Dividercolor)),
+        color: AppColors.contcolor3,
+        borderRadius: BorderRadius.all(
+          Radius.circular(10),
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('*Delivery information', style: TextStyles.Merriblack2),
+            Text('*Delivery information', style: TextStyles.MontserratSemiBold),
             SizedBox(height: 20),
             buildInputField(
                 hintText: 'Country', controller: controller.countryController),

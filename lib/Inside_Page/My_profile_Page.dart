@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,10 +8,10 @@ import '../All_Custom_Faction/Image.dart';
 import '../All_Custom_Faction/TextStyle.dart';
 import '../Authentication_Screen/Authentication_Widget/Authentication_Widget.dart';
 import '../Controller/My_Profile_Page.dart';
-import '../Controller/Profile_Controller.dart';
 
 class My_Profile_Page extends StatelessWidget {
-  final My_Profile_Controller MyProfileController = Get.put(My_Profile_Controller());
+  final My_Profile_Controller MyProfileController =
+      Get.put(My_Profile_Controller());
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class My_Profile_Page extends StatelessWidget {
         backgroundColor: AppColors.contcolor2,
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.only(top: 30, bottom: 20, left: 10, right: 10),
+            padding: EdgeInsets.only(top: 10, bottom: 20, left: 10, right: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -33,11 +34,7 @@ class My_Profile_Page extends StatelessWidget {
                       onTap: () {
                         Get.back();
                       },
-                      child: Image.asset(
-                        Images.backimage,
-                        height: 40,
-                        width: 40,
-                      ),
+                      child: Icon(CupertinoIcons.back),
                     ),
                     Image.asset(
                       Images.logoimage,
@@ -45,7 +42,7 @@ class My_Profile_Page extends StatelessWidget {
                     ),
                     CircleAvatar(
                       radius: 18,
-                      backgroundColor: AppColors.contcolor.withOpacity(0.9),
+                      backgroundColor: AppColors.contcolor5.withOpacity(0.9),
                       child: Icon(
                         Icons.edit,
                         color: Colors.white,
@@ -54,10 +51,10 @@ class My_Profile_Page extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 10),
                 CircleAvatar(
                   radius: 60,
-                  backgroundColor: AppColors.contcolor,
+                  backgroundColor: AppColors.contcolor5.withOpacity(0.5),
                   child: CircleAvatar(
                     radius: 55,
                     backgroundImage: NetworkImage(
@@ -105,7 +102,7 @@ class My_Profile_Page extends StatelessWidget {
                 buildNumberInputField(
                   hintText: 'Mobile Number',
                   controller: MyProfileController.emailController,
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.number,
                   textInputAction: TextInputAction.next,
                   context: context,
                 ),
@@ -124,18 +121,18 @@ class My_Profile_Page extends StatelessWidget {
                 buildInputField(
                   hintText: 'Address',
                   controller: MyProfileController.mobileNumberController,
-                  keyboardType: TextInputType.phone,
+                  keyboardType: TextInputType.text,
                   textInputAction: TextInputAction.done,
                 ),
                 SizedBox(height: 50),
-                CustomButton(
+                CustomButton5(
                   backgroundColor: AppColors.contcolor,
                   onTap: () {
                     Get.offAllNamed('/');
                     // Add checkout logic here
                   },
                   text: 'Update',
-                  style: TextStyles.Merribold1,
+                  style: TextStyles.MontserratMedium1,
                 ),
               ],
             ),
@@ -150,7 +147,7 @@ class My_Profile_Page extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Text(
         text,
-        style: TextStyles.Merriblack7,
+        style: TextStyles.MontserratBold1,
       ),
     );
   }

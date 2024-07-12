@@ -23,14 +23,12 @@ class ConfirmationPage extends StatelessWidget {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.only(top: 30, bottom: 0, left: 10, right: 10),
+            padding: EdgeInsets.only(top: 10, bottom: 0, left: 10, right: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomAppbarWidget(),
-                SizedBox(height: 30),
-                Image.asset(Images.confrimimgtop, width: screenSize.width),
-                SizedBox(height: 50),
+                SizedBox(height: 10),
                 _buildSectionTitle('Check and confirm your order'),
                 SizedBox(height: 16),
                 _buildInfoCard('Shipping address',
@@ -39,17 +37,13 @@ class ConfirmationPage extends StatelessWidget {
                 SizedBox(height: 16),
                 _buildInfoCard('Payment details', 'XXXX-XXXX-XXXX-XXXX', true),
                 SizedBox(height: 20),
-                Image.asset(Images.dotline, width: screenSize.width),
-                SizedBox(height: 20),
                 Container(
                   width: screenSize.width,
                   decoration: BoxDecoration(
                     color: AppColors.contcolor3,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(30),
-                      topLeft: Radius.circular(30),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
                     ),
-                    border: Border.all(color: AppColors.Dividercolor, width: 3),
                   ),
                   child: Padding(
                     padding: EdgeInsets.all(15.0),
@@ -62,34 +56,32 @@ class ConfirmationPage extends StatelessWidget {
                         ),
                         Text(
                           'Price details',
-                          style: TextStyles.Merriblack1,
+                          style: TextStyles.MontserratSemiBold1,
                         ),
                         SizedBox(
                           height: 5,
                         ),
-
-
                         Divider(
-                          color: AppColors.Dividercolor,
+                          color: AppColors.contcolor5,
                           height: 10,
                           thickness: 2,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Subtotal", style: TextStyles.MerriLight3),
+                            Text("Subtotal", style: TextStyles.MontserratRegular1),
                             Obx(() =>
                                 Text(
                                     "${ConfirmPaymentController.totalAmount
                                         .value} \$",
-                                    style: TextStyles.MerriLight4)),
+                                    style: TextStyles.MontserratMedium3)),
                           ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Delivery Fee", style: TextStyles.MerriLight3),
-                            Text("Free", style: TextStyles.MerriLight4),
+                            Text("Delivery Fee", style: TextStyles.MontserratRegular1),
+                            Text("Free", style: TextStyles.MontserratRegular1),
                           ],
                         ),
                         Container(
@@ -106,13 +98,13 @@ class ConfirmationPage extends StatelessWidget {
                               children: [
                                 Text(
                                   "Total",
-                                  style: TextStyles.Merriblack4,
+                                  style: TextStyles.MontserratBold3,
                                 ),
                                 Obx(() =>
                                     Text(
                                       "${ConfirmPaymentController.totalAmount
                                           .value} \$",
-                                      style: TextStyles.Merriblack,
+                                      style: TextStyles.MontserratBold3,
                                     )),
                               ],
                             ),
@@ -121,23 +113,22 @@ class ConfirmationPage extends StatelessWidget {
                         SizedBox(
                           height: 5,
                         ),
-                        CustomButton(
+                        CustomButton5(
                           backgroundColor: AppColors.contcolor,
                           onTap: () {
                             Get.to(() => Thank_You_Page());
                             // Add checkout logic here
                           },
                           text: 'Confirm order',
-                          style: TextStyles.Merribold1,
+                          style: TextStyles.MontserratMedium1,
                         ),
                       ],
                     ),
                   ),
                 ),
                 SizedBox(height: 20),
-                Text('Your order:', style: TextStyles.Merriblack1),
+                Text('Your order:', style: TextStyles.MontserratSemiBold1),
                 SizedBox(height: 20),
-
                 Container(
                   height: ConfirmPaymentController.items.isNotEmpty ? 300 : 50,
                   width: screenSize.width,
@@ -314,7 +305,7 @@ class ConfirmationPage extends StatelessWidget {
                       : Center(
                       child: Text(
                         "No available Products in cart",
-                        style: TextStyles.Merriblack4,
+                        style: TextStyles.MontserratBold7,
                       )),
                 ),
 
@@ -328,16 +319,15 @@ class ConfirmationPage extends StatelessWidget {
 
 
   Widget _buildSectionTitle(String title) {
-    return Text(title, style: TextStyles.Merriblack1);
+    return Text(title, style: TextStyles.MontserratSemiBold1);
   }
 
   Widget _buildInfoCard(String title, String content, bool editable) {
-    return Card(
+    return Card(elevation: 1,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
       child: ListTile(
-
-        title: Text(title, style: TextStyles.Merriblack1),
-        subtitle: Text(content, style: TextStyles.MerriLight3),
+        title: Text(title, style: TextStyles.MontserratSemiBold2),
+        subtitle: Text(content, style: TextStyles.MontserratRegular1),
         trailing: editable ? TextButton(onPressed: () {},
             child: Text('Edit', style: TextStyles.Merriblack8)) : null,
       ),

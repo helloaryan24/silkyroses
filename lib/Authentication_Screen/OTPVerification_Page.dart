@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../All_Custom_Faction/All_Widget.dart';
@@ -9,31 +10,43 @@ import 'Authentication_Widget/Authentication_Widget.dart';
 
 class OTPVerification_Page extends StatelessWidget {
   final OTPVerificationController otpVerificationController =
-  Get.put(OTPVerificationController());
+      Get.put(OTPVerificationController());
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: AppColors.contcolor1,
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          leading: GestureDetector(
+              onTap: () {
+                Get.back();
+              },
+              child: Icon(CupertinoIcons.back)),
+        ),
         body: Container(
           width: screenSize.width,
           height: screenSize.height,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(Images.signupbg),
-              fit: BoxFit.fill,
+              image: AssetImage(Images.loginbg),
+              fit: BoxFit.cover,
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding:
+                const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Verification Code', style: TextStyles.Merribold2),
+                Text('Verification Code', style: TextStyles.MontserratBold),
                 SizedBox(height: 10),
-                Text('We have send the verification code to your email address', style: TextStyles.MerriLight),
+                Text('We have send the verification code to your email address',
+                    style: TextStyles.MontserratMedium3),
                 SizedBox(height: 20),
                 buildInputField(
                   hintText: 'OTP',
@@ -41,13 +54,13 @@ class OTPVerification_Page extends StatelessWidget {
                   keyboardType: TextInputType.number,
                 ),
                 SizedBox(height: 50),
-                CustomButton(
-                  backgroundColor: AppColors.contcolor,
+                CustomButton5(
+                  backgroundColor: AppColors.contcolor4,
                   onTap: () {
                     otpVerificationController.verifyOTP();
                   },
                   text: 'Verify OTP',
-                  style: TextStyles.Merribold1,
+                  style: TextStyles.MontserratMedium1,
                 ),
               ],
             ),

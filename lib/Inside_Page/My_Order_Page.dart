@@ -21,12 +21,12 @@ class My_Order_Page extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.contcolor2,
         body: Padding(
-          padding: EdgeInsets.only(top: 30, bottom: 0, left: 10, right: 10),
+          padding: EdgeInsets.only(top: 10, bottom: 0, left: 10, right: 10),
           child: Column(
             children: [
               CustomAppbarWidget(),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Expanded(
                 child: Container(
@@ -35,7 +35,6 @@ class My_Order_Page extends StatelessWidget {
                     if (controller.orders.isEmpty) {
                       return Center(child: CircularProgressIndicator());
                     }
-
                     return ListView.builder(
                       itemCount: controller.orders.length,
                       itemBuilder: (context, index) {
@@ -64,7 +63,7 @@ class OrderCard extends StatelessWidget {
     return Card(
       margin: EdgeInsets.all(8.0),
       color: AppColors.whitecolor,
-      elevation: 3,
+      elevation: 1,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -73,16 +72,16 @@ class OrderCard extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  height: 80,
-                  width: 80,
+                  height: 50,
+                  width: 50,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: AppColors.contcolor.withOpacity(0.5),
-                      borderRadius: BorderRadius.circular(10)),
+                      color: AppColors.contcolor5.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(5)),
                   child: Image.asset(
                     Images.homelistroseimg,
-                    width: 70,
-                    height: 70,
+                    width: 45,
+                    height: 45,
                   ),
                 ),
                 SizedBox(width: 16),
@@ -92,11 +91,11 @@ class OrderCard extends StatelessWidget {
                   children: [
                     Text(
                       order.title,
-                      style: TextStyles.Merriblack,
+                      style: TextStyles.MontserratBold6,
                     ),
                     Text(
                       'Total: \$${order.total.toStringAsFixed(2)}',
-                      style: TextStyles.Merriblack7,
+                      style: TextStyles.MontserratSemiBold2,
                     ),
                   ],
                 ),
@@ -105,11 +104,11 @@ class OrderCard extends StatelessWidget {
             SizedBox(height: 8),
             Text(
               'Order Number: ${order.orderNumber}',
-              style: TextStyles.MerriLight3,
+              style: TextStyles.MontserratMedium3,
             ),
             Text(
               'Date: ${order.date}',
-              style: TextStyles.MerriLight3,
+              style: TextStyles.MontserratMedium3,
             ),
             SizedBox(height: 8),
             Align(
@@ -120,33 +119,31 @@ class OrderCard extends StatelessWidget {
                       children: [
                         CustomButton4(
                           backgroundColor: AppColors.whitecolor,
-                          onTap: () {
-                            // Get.offAllNamed('/');
-                            // Add Log out logic here
-                          },
+                          onTap: () {},
                           text: 'Processing',
-                          style: TextStyles.Merriblack7,
+                          style: TextStyles.MontserratBold1,
                         ),
                         SizedBox(width: 8),
                         CustomButton3(
-                          backgroundColor: AppColors.contcolor,
+                          backgroundColor:
+                              AppColors.contcolor5,
                           onTap: () {
                             Get.to(() => TrackOrderPage());
                             // Add Log out logic here
                           },
                           text: 'Track Order',
-                          style: TextStyles.Merribold3,
+                          style: TextStyles.MontserratBold2,
                         ),
                       ],
                     )
-                  : CustomButton3(
+                  : CustomButton6(
                       backgroundColor: AppColors.contcolor,
                       onTap: () {
                         Get.to(() => TrackOrderPage());
                         // Add Log out logic here
                       },
                       text: 'Delivered',
-                      style: TextStyles.Merribold3,
+                      style: TextStyles.MontserratBold2,
                     ),
             ),
           ],

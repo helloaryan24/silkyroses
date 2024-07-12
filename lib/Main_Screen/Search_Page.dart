@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_native/flutter_rating_native.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 
 import '../All_Custom_Faction/All_Widget.dart';
@@ -148,36 +147,32 @@ class SearchPage extends StatelessWidget {
                                               color:
                                                   Colors.white.withOpacity(0.5),
                                             ),
-                                            child: SizedBox(height: 35,width: 35,
+                                            child: SizedBox(
+                                              height: 30,
+                                              width: 30,
                                               child: ElevatedButton(
                                                 onPressed: () {
                                                   searchController
-                                                      .toggleIconState(
-                                                      index);
+                                                      .toggleIconState(index);
                                                 },
                                                 child: Icon(
                                                   size: 18,
                                                   searchController
-                                                      .iconFilledState[
-                                                  index]
+                                                              .iconFilledState[
+                                                          index]
                                                       ? Icons.favorite
-                                                      : Icons
-                                                      .favorite_border,
+                                                      : Icons.favorite_border,
                                                   color: searchController
-                                                      .iconFilledState[
-                                                  index]
+                                                              .iconFilledState[
+                                                          index]
                                                       ? Colors.red
                                                       : Colors.red,
                                                 ),
-                                                style: ElevatedButton
-                                                    .styleFrom(
+                                                style: ElevatedButton.styleFrom(
                                                   shape: CircleBorder(),
                                                   elevation: 2,
-                                                  padding:
-                                                  EdgeInsets.all(
-                                                      5),
-                                                  backgroundColor:
-                                                  Colors.white,
+                                                  padding: EdgeInsets.all(5),
+                                                  backgroundColor: Colors.white,
                                                   // <-- Button color
                                                   foregroundColor: Colors
                                                       .red, // <-- Splash color
@@ -201,23 +196,51 @@ class SearchPage extends StatelessWidget {
                                                 Text(
                                                     searchController
                                                         .GridViewNames[index],
-                                                    style:
-                                                        TextStyles.MontserratSemiBold),
+                                                    style: TextStyles
+                                                        .MontserratSemiBold),
                                                 SizedBox(height: 5),
                                                 Text(
                                                   searchController
                                                       .GridViewprices[index],
-                                                  style: TextStyles.MontserratSemiBold2,
+                                                  style: TextStyles
+                                                      .MontserratSemiBold2,
                                                 ),
                                                 SizedBox(height: 5),
-                                                FlutterRating(
-                                                  rating: 4.5,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  size: 15,
-                                                  borderColor: Colors.amber,
-                                                  allowHalfRating: true,
+                                                Row(
+                                                  children: [
+                                                    Container(
+                                                      height: 20,
+                                                      width: 70,
+                                                      color: Colors.amber,
+                                                      alignment: Alignment.center,
+                                                      child: Text("50% off",style: TextStyles.MontserratBold11,),
+                                                    ),
+                                                    SizedBox(width: 10,),
+                                                    Text('(243)',
+                                                        style: TextStyles
+                                                            .MontserratBold9),
+                                                    Icon(Icons.star,
+                                                        color: Colors.amber,
+                                                        size: 18),
+                                                  ],
                                                 ),
+                                                Padding(
+                                                  padding: const EdgeInsets.only(top: 10,right: 20),
+                                                  child: CustomButton6(
+                                                      text: "Add to cart",
+                                                      backgroundColor:
+                                                      AppColors.contcolor.withOpacity(0.3),
+                                                      onTap: () {},
+                                                      style: TextStyles.MontserratBold10),
+                                                )
+                                                // FlutterRating(
+                                                //   rating: 4.5,
+                                                //   mainAxisAlignment:
+                                                //       MainAxisAlignment.start,
+                                                //   size: 15,
+                                                //   borderColor: Colors.amber,
+                                                //   allowHalfRating: true,
+                                                // ),
                                               ],
                                             ),
                                           ),

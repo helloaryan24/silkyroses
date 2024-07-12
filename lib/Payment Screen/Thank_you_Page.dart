@@ -22,19 +22,19 @@ class Thank_You_Page extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: CustomButton(
+        child: CustomButton5(
           backgroundColor: AppColors.contcolor,
           onTap: () {
             Get.offAllNamed('/BottomBar_Page');
           },
           text: 'View order status',
-          style: TextStyles.Merribold1,
+          style: TextStyles.MontserratMedium1,
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding:
-              const EdgeInsets.only(top: 30, right: 20, left: 20, bottom: 20),
+              const EdgeInsets.only(top: 10, right: 20, left: 20, bottom: 20),
           child: Column(
             children: [
               Image.asset(
@@ -50,14 +50,14 @@ class Thank_You_Page extends StatelessWidget {
               ),
               Text(
                 "Thank You!",
-                style: TextStyles.Merriblack6,
+                style: TextStyles.MontserratLight1,
               ),
               SizedBox(
                 height: 50,
               ),
               Text(
                 "Your order is placed successfully, please go to order page to manage status.",
-                style: TextStyles.Merriblack3,
+                style: TextStyles.MontserratBold3,
                 textAlign: TextAlign.center,
               ),
               SizedBox(

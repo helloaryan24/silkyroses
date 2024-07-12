@@ -12,6 +12,7 @@ class AppColors {
   static const Color contcolor3 = Color(0xFFFF2F4F5);
   static const Color contcolor4 = Color(0xFFF84526B);
   static const Color contcolor5 = Color(0xFFF916079);
+
   // static const Color contcolor5 = Colors.red;
   static const Color Dividercolor = Color(0xFFFDAEFDE);
   static const Color imgbgcolor = Color(0xFFFD6D5D5);

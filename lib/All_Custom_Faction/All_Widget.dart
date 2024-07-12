@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:lottie/lottie.dart';
@@ -14,59 +14,6 @@ import '../Controller/Search_page_Controller.dart';
 import 'Colors.dart';
 import 'Image.dart';
 import 'TextStyle.dart';
-
-class CustomButton5 extends StatelessWidget {
-  final String text;
-  final Color backgroundColor;
-  final VoidCallback onTap;
-  final TextStyle style;
-
-  const CustomButton5({
-    required this.text,
-    required this.backgroundColor,
-    required this.onTap,
-    required this.style,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        height: 43,
-        child: Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            // border: Border.all(width: 2,color: Colors.black),
-            boxShadow:[
-              BoxShadow(
-                color: Colors.black45, //color of shadow
-                blurRadius: 1, // blur radius
-                offset: Offset(0, 2), // changes position of shadow
-              ),
-            ],
-            borderRadius: BorderRadius.circular(3.0),
-            gradient: LinearGradient(
-              colors: [
-                AppColors.contcolor4,
-                AppColors.contcolor5,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: style,
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -86,13 +33,13 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 50,
+        height: 45,
         child: Container(
           alignment: Alignment.center,
           padding: EdgeInsets.all(8.0),
           decoration: BoxDecoration(
             color: backgroundColor,
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(10.0),
           ),
           child: Text(
             text,
@@ -129,13 +76,13 @@ class CustomButton1 extends StatelessWidget {
           padding: EdgeInsets.all(8.0),
           decoration: BoxDecoration(
             color: backgroundColor,
-            border: Border.all(color: Colors.red),
+            border: Border.all(color: AppColors.contcolor4),
             borderRadius: BorderRadius.circular(30.0),
           ),
           child: Shimmer.fromColors(
             baseColor: Colors.white,
-            highlightColor: Colors.yellow,
-            period: Duration(seconds: 2),
+            highlightColor: AppColors.contcolor4,
+            period: Duration(seconds: 1),
             child: Text(
               text,
               textAlign: TextAlign.center,
@@ -173,7 +120,7 @@ class CustomButton2 extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
           boxShadow: [
             BoxShadow(
-              color: AppColors.contcolor.withOpacity(0.5),
+              color: AppColors.contcolor5.withOpacity(0.1),
               spreadRadius: 1,
               blurRadius: 1,
             ),
@@ -190,7 +137,7 @@ class CustomButton2 extends StatelessWidget {
             ),
             Icon(
               Icons.arrow_forward,
-              color: AppColors.contcolor,
+              color: AppColors.blackcolor,
             )
           ],
         ),
@@ -217,7 +164,7 @@ class CustomButton3 extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 45,
+        height: 40,
         padding: EdgeInsets.only(left: 10, right: 10),
         decoration: BoxDecoration(
           color: backgroundColor,
@@ -252,17 +199,115 @@ class CustomButton4 extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 45,
+        height: 40,
         padding: EdgeInsets.only(left: 10, right: 10),
         decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: BorderRadius.circular(30.0),
-            border: Border.all(width: 2, color: AppColors.contcolor)),
+            border: Border.all(width: 2, color: AppColors.contcolor5)),
         alignment: Alignment.center,
         child: Text(
           text,
           textAlign: TextAlign.center,
           style: style,
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton5 extends StatelessWidget {
+  final String text;
+  final Color backgroundColor;
+  final VoidCallback onTap;
+  final TextStyle style;
+
+  const CustomButton5({
+    required this.text,
+    required this.backgroundColor,
+    required this.onTap,
+    required this.style,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 43,
+        child: Container(
+          alignment: Alignment.center,
+          padding: EdgeInsets.all(8.0),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            // border: Border.all(width: 2,color: Colors.black),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black38, //color of shadow
+                blurRadius: 1, // blur radius
+                offset: Offset(0, 2), // changes position of shadow
+              ),
+            ],
+            borderRadius: BorderRadius.circular(8.0),
+            gradient: LinearGradient(
+              colors: [
+                AppColors.contcolor4,
+                AppColors.contcolor5,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: style,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton6 extends StatelessWidget {
+  final String text;
+  final Color backgroundColor;
+  final VoidCallback onTap;
+  final TextStyle style;
+
+  const CustomButton6({
+    required this.text,
+    required this.backgroundColor,
+    required this.onTap,
+    required this.style,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 33,
+        child: Container(
+          alignment: Alignment.center,
+          padding: EdgeInsets.all(8.0),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(10.0),
+            gradient: LinearGradient(
+              colors: [
+                AppColors.contcolor4,
+                AppColors.contcolor5,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: style,
+          ),
         ),
       ),
     );
@@ -368,11 +413,11 @@ Widget lottieAnimation(BuildContext context, String url) {
     child: Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
-        width: 200,
-        height: 200,
+        width: 100,
+        height: 100,
         decoration: BoxDecoration(
-            color: AppColors.contcolor.withOpacity(0.5),
-            borderRadius: BorderRadius.circular(20)),
+            color: AppColors.contcolor5.withOpacity(0.2),
+            borderRadius: BorderRadius.circular(10)),
         child: Center(
           child: Lottie.asset(
             alignment: Alignment.center,
@@ -402,17 +447,13 @@ class CustomAppbarWidget extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         GestureDetector(
           onTap: () {
             Get.back();
           },
-          child: Image.asset(
-            Images.backimage,
-            height: 40,
-            width: 40,
-          ),
+          child: Icon(CupertinoIcons.back),
         ),
         Image.asset(
           Images.logoimage,
@@ -422,11 +463,7 @@ class CustomAppbarWidget extends StatelessWidget {
           onTap: () {
             Get.back();
           },
-          child: Image.asset(
-            Images.cencelimage,
-            height: 40,
-            width: 40,
-          ),
+          child: Icon(Icons.close),
         ),
       ],
     );

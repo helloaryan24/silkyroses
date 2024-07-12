@@ -225,7 +225,8 @@ class Signup_Page extends StatelessWidget {
                         children: [
                           Expanded(
                             flex: 2,
-                            child: Container(height: 45,
+                            child: Container(
+                              height: 45,
                               padding: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
                                 color: Colors.white,
@@ -237,6 +238,8 @@ class Signup_Page extends StatelessWidget {
                                   hintText: 'Country Code',
                                   hintStyle: TextStyle(color: Colors.grey),
                                 ),
+                                iconSize: 16,
+                                isExpanded: true,
                                 value: signUpController.countryCodes[0],
                                 onChanged: (value) {},
                                 items: signUpController.countryCodes
@@ -291,6 +294,8 @@ class Signup_Page extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Obx(() => Checkbox(
                                 activeColor: Colors.red,
@@ -300,8 +305,13 @@ class Signup_Page extends StatelessWidget {
                                       value!;
                                 },
                               )),
-                          Text('I agree to the policy and terms.',
-                              style: TextStyles.MontserratMedium2),
+                          Text(
+                            'I agree to the policy and terms.',
+                            style: TextStyles.MontserratMedium2,
+                            textAlign: TextAlign.start,
+                            maxLines: 1,
+                            overflow: TextOverflow.visible,
+                          ),
                         ],
                       ),
                       SizedBox(height: 20),

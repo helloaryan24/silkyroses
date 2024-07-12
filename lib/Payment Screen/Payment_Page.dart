@@ -23,18 +23,15 @@ class Payment_Page extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding:
-            const EdgeInsets.only(top: 0, bottom: 20, left: 10, right: 10),
+            const EdgeInsets.only(top: 10, bottom: 20, left: 10, right: 10),
             child: Column(
               children: [
-                SizedBox(height: 30),
                 CustomAppbarWidget(),
-                SizedBox(height: 30),
-                Image.asset(Images.paymentpageimage, width: screenSize.width),
                 SizedBox(height: 30),
                 Align(
                     alignment: Alignment.centerLeft,
                     child: Text('Select shipping method',
-                        style: TextStyles.Merriblack1)),
+                        style: TextStyles.MontserratSemiBold1)),
                 SizedBox(height: 20),
                 Column(
                   children: [
@@ -48,10 +45,6 @@ class Payment_Page extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 30,
-                ),
-                Image.asset(Images.dotline, width: screenSize.width),
-                SizedBox(
                   height: 50,
                 ),
                 Obx(() {
@@ -60,35 +53,32 @@ class Payment_Page extends StatelessWidget {
                     return Center(
                         child: Text(
                           'Credit Cart selected',
-                          style: TextStyles.Merriblack4,
+                          style: TextStyles.MontserratBold7,
                         ));
                   } else if (controller.selectedPaymentMethod.value ==
                       'Cash on Delivery') {
                     return Center(
                         child: Text(
                       'Cash on Delivery selected',
-                      style: TextStyles.Merriblack4,
+                      style: TextStyles.MontserratBold7,
                     ));
                   } else {
                     return Center(
                         child: Text(
                             '${controller.selectedPaymentMethod.value} selected',
-                            style: TextStyles.Merriblack4));
+                            style: TextStyles.MontserratBold7));
                   }
                 }),
                 SizedBox(
                   height: 20,
                 ),
-                Center(
-                  child: CustomButton(
-                    backgroundColor: AppColors.contcolor,
-                    onTap: () {
-                      Get.to(() => ConfirmationPage());
-          
-                    },
-                    text: 'Pay now',
-                    style: TextStyles.Merribold1,
-                  ),
+                CustomButton5(
+                  backgroundColor: AppColors.contcolor,
+                  onTap: () {
+                    Get.to(() => ConfirmationPage());
+                  },
+                  text: 'Pay Now',
+                  style: TextStyles.MontserratMedium1,
                 ),
               ],
             ),
@@ -115,7 +105,7 @@ class Payment_Page extends StatelessWidget {
               ],
               border: Border.all(
                 color: controller.selectedPaymentMethod.value == method
-                    ? AppColors.contcolor
+                    ? AppColors.contcolor5
                     : Colors.grey,
               ),
               borderRadius: BorderRadius.circular(5),
@@ -137,7 +127,7 @@ class Payment_Page extends StatelessWidget {
                 SizedBox(width: 20),
                 Text(
                   method,
-                  style: TextStyles.Merriblack5,
+                  style: TextStyles.MontserratBold4,
 
                 ),
               ],

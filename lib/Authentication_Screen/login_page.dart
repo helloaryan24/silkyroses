@@ -33,7 +33,7 @@ class Login_Page extends StatelessWidget {
           ),
           child: SingleChildScrollView(
             padding:
-                const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
+                const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -63,7 +63,7 @@ class Login_Page extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: GestureDetector(
                     onTap: () {
-                      // loginController.forgetpassword();
+                      loginController.forgetpassword();
                     },
                     child: Text('Forgot your Password?', style: TextStyles.MontserratBold1),
                   ),

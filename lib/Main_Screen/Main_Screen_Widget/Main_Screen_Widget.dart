@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../All_Custom_Faction/All_Widget.dart';
 import '../../All_Custom_Faction/Colors.dart';
@@ -56,24 +55,9 @@ class CustomCarouselSlider extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Get Special offer", style: TextStyles.MontserratBold5),
-                  SizedBox(
-                    height: 5,
-                  ),
+                  SizedBox(height: 5),
                   Text("Up to 20%", style: TextStyles.MontserratBold2),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  // Padding(
-                  //   padding: const EdgeInsets.only(left: 0, right: 150),
-                  //   child: CustomButton(
-                  //     backgroundColor: AppColors.contcolor,
-                  //     onTap: () {
-                  //       // loginController.signindone();
-                  //     },
-                  //     text: 'Order Now',
-                  //     style: TextStyles.Merribold1,
-                  //   ),
-                  // ),
+                  SizedBox(height: 30),
                 ],
               ),
             ),
@@ -83,5 +67,3 @@ class CustomCarouselSlider extends StatelessWidget {
     );
   }
 }
-
-

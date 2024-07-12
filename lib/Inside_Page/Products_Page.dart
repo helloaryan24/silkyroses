@@ -22,22 +22,21 @@ class Products_Page extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.contcolor2,
         body: SingleChildScrollView(
-          padding: const EdgeInsets.only(top: 30, bottom: 20),
+          padding: const EdgeInsets.only(top: 10, bottom: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CustomAppbarWidget(),
-              SizedBox(height: 30),
+              SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Container(
-                  height: 50,
+                  height: 45,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(width: 2, color: AppColors.Dividercolor),
                   ),
                   child: Obx(
                     () => TextField(
@@ -47,17 +46,15 @@ class Products_Page extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 15,
-                        fontFamily: 'MerriweatherRegular',
+                        fontFamily: 'MontserratMedium',
                       ),
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 11, horizontal: 15),
                         hintText: "Search here..",
                         hintStyle: TextStyle(
                           color: Colors.grey,
-                          fontSize: 15,
-                          fontFamily: 'MerriweatherLight',
+                          fontSize: 13,
+                          fontFamily: 'MontserratRegular',
                         ),
                         prefixIcon: GestureDetector(
                           child: Icon(
@@ -66,6 +63,20 @@ class Products_Page extends StatelessWidget {
                           ),
                         ),
                         suffixIcon: SuffixIconWidget(),
+                        contentPadding: EdgeInsets.all(5),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: AppColors.darkgreycolor.withOpacity(0.2),
+                          ),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: AppColors.darkgreycolor.withOpacity(0.2),
+                          ),
+                          // borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
                       ),
                     ),
                   ),
@@ -88,7 +99,7 @@ class Products_Page extends StatelessWidget {
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return MatchesGridView(index, controller);
+                    return MatchesGridView(index, controller, context);
                   },
                 ),
               ),
@@ -100,7 +111,7 @@ class Products_Page extends StatelessWidget {
   }
 }
 
-Widget MatchesGridView(int index, ProductsController controller) {
+Widget MatchesGridView(int index, ProductsController controller, context) {
   return Obx(() => GestureDetector(
         onTap: () {
           controller.navigateToprodutspage();
@@ -108,112 +119,100 @@ Widget MatchesGridView(int index, ProductsController controller) {
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
                 color: Colors.black12,
                 blurRadius: 2,
               ),
             ],
-            border: Border.all(width: 2, color: AppColors.Dividercolor),
+            borderRadius: BorderRadius.circular(8),
           ),
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  controller.imageGridViewurl[index],
-                  height: 130,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.star_border,
-                            color: Colors.amber,
-                          ),
-                          SizedBox(
-                            width: 2,
-                          ),
-                          Text(
-                            '4.9',
-                            style: TextStyles.Merriblack3,
-                            textAlign: TextAlign.center,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
+                Container(
+                  height: 120,
+                  alignment: Alignment.bottomRight,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    image: DecorationImage(
+                      image: AssetImage(controller.imageGridViewurl[index]),
+                    ),
+                  ),
+                  child: SizedBox(
+                    height: 35,
+                    width: 35,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        controller.toggleIconState(index);
+                      },
+                      child: Icon(
+                        controller.iconFilledState[index]
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        color: Colors.red,
+                        size: 20,
                       ),
-                      GestureDetector(
-                        onTap: () => controller.toggleIconState(index),
-                        child: Icon(
-                          controller.iconFilledState[index]
-                              ? Icons.favorite
-                              : Icons.favorite_border,
-                          color: Colors.red,
-                          size: 20,
-                        ),
+                      style: ElevatedButton.styleFrom(
+                        shape: CircleBorder(),
+                        elevation: 2,
+                        padding: EdgeInsets.all(5),
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.red,
                       ),
-                    ],
+                    ),
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     controller.GridViewNames[index],
-                    style: TextStyles.Merriblack3,
+                    style: TextStyles.MontserratSemiBold2,
                     textAlign: TextAlign.start,
                     maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    controller.GridViewprices[index],
-                    style: TextStyles.Merriblack1,
-                    textAlign: TextAlign.start,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                    overflow: TextOverflow.visible,
                   ),
                 ),
                 SizedBox(
                   height: 5,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.contcolor,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  alignment: Alignment.center,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          CupertinoIcons.cart,
-                          color: Colors.white,
-                        ),
-                        SizedBox(width: 5),
-                        Text(
-                          "Add to cart",
-                          style: TextStyles.Merribold3,
-                        ),
-                      ],
-                    ),
-                  ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(controller.GridViewprices[index],
+                      style: TextStyles.MontserratSemiBold2),
                 ),
+                Row(
+                  children: [
+                    Container(
+                      height: 20,
+                      width: 60,
+                      color: Colors.amber,
+                      alignment: Alignment.center,
+                      child: Text(
+                        "50% off",
+                        style: TextStyles.MontserratBold11,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text('(243)', style: TextStyles.MontserratBold9),
+                    Icon(Icons.star, color: Colors.amber, size: 18),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CustomButton6(
+                    text: "Add to cart",
+                    backgroundColor: AppColors.contcolor.withOpacity(0.8),
+                    onTap: () {},
+                    style: TextStyles.MontserratBold2),
               ],
             ),
           ),
@@ -229,10 +228,10 @@ double _calculateChildAspectRatio(BuildContext context) {
   double screenWidth = MediaQuery.of(context).size.width;
   if (screenWidth > 345) {
     print("Screen width > 345, applying aspect ratio 1.0 / 2.0");
-    return 1.12 / 2.0;
+    return 1.2 / 2.0;
   } else if (screenWidth >= 305) {
     print("Screen width >= 305, applying aspect ratio 1.50 / 2.9");
-    return 1.40 / 2.9;
+    return 1.5 / 2.9;
   } else {
     print("Screen width < 305, applying aspect ratio 2.5 / 3");
     return 2.5 / 3;

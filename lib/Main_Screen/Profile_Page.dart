@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 
 import '../All_Custom_Faction/All_Widget.dart';
@@ -23,7 +22,7 @@ class Profile_Page extends StatelessWidget {
           backgroundColor: AppColors.contcolor2,
           body: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.only(top: 20, bottom: 20, left: 10, right: 10),
+              padding: EdgeInsets.only(top: 10, bottom: 20, left: 10, right: 10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,25 +31,14 @@ class Profile_Page extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 10,right: 10),
                     child: customAppbarhomescreen(context),
                   ),
-                  // SizedBox(height: 30),
-                  // CircleAvatar(
-                  //   radius: 60,
-                  //   backgroundColor: AppColors.contcolor,
-                  //   child: CircleAvatar(
-                  //     radius: 55,
-                  //     backgroundImage: NetworkImage(
-                  //       'https://shotkit.com/wp-content/uploads/bb-plugin/cache/cool-profile-pic-matheus-ferrero-landscape-6cbeea07ce870fc53bedd94909941a4b-zybravgx2q47.jpeg',
-                  //     ),
-                  //   ),
-                  // ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 10),
                   CustomButton2(
                     backgroundColor: AppColors.whitecolor,
                     onTap: () {
                       Get.to(() => My_Profile_Page());
                     },
                     text: 'My Profile',
-                    style: TextStyles.Merriblack,
+                    style: TextStyles.MontserratBold6,
                   ),
                   SizedBox(height: 20),
                   CustomButton2(
@@ -59,7 +47,7 @@ class Profile_Page extends StatelessWidget {
                       Get.to(() => My_Order_Page());
                     },
                     text: 'My Order',
-                    style: TextStyles.Merriblack,
+                    style: TextStyles.MontserratBold6,
                   ),
                   SizedBox(height: 20),
                   CustomButton2(
@@ -68,7 +56,7 @@ class Profile_Page extends StatelessWidget {
                       // Add Help logic here
                     },
                     text: 'Save Roses',
-                    style: TextStyles.Merriblack,
+                    style: TextStyles.MontserratBold6,
                   ),
                   SizedBox(height: 20),
                   CustomButton2(
@@ -77,7 +65,7 @@ class Profile_Page extends StatelessWidget {
                       // Add Help logic here
                     },
                     text: 'Help',
-                    style: TextStyles.Merriblack,
+                    style: TextStyles.MontserratBold6,
                   ),
                   SizedBox(height: 20),
                   CustomButton2(
@@ -87,7 +75,7 @@ class Profile_Page extends StatelessWidget {
                       // Add Delete account logic here
                     },
                     text: 'Delete account',
-                    style: TextStyles.Merriblack,
+                    style: TextStyles.MontserratBold6,
                   ),
                   SizedBox(height: 70),
                   Align(
@@ -99,7 +87,7 @@ class Profile_Page extends StatelessWidget {
                         // Add Log out logic here
                       },
                       text: 'Log out',
-                      style: TextStyles.Merribold1,
+                      style: TextStyles.MontserratBold12,
                     ),
                   ),
                 ],

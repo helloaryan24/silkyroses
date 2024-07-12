@@ -24,6 +24,12 @@ class TextStyles {
       color: AppColors.blackcolor);
 
 
+  static const TextStyle MontserratRegular3 = TextStyle(
+      fontSize: 10.0,
+      fontFamily: 'MontserratRegular',
+      color: AppColors.greycolor);
+
+
   static const TextStyle MontserratMedium = TextStyle(
       fontSize: 15.0,
       fontFamily: 'MontserratMedium',
@@ -32,7 +38,7 @@ class TextStyles {
 
 
   static const TextStyle MontserratMedium1 = TextStyle(
-      fontSize: 18.0,
+      fontSize: 15.0,
       fontFamily: 'MontserratMedium',
       color: AppColors.whitecolor);
 
@@ -41,12 +47,18 @@ class TextStyles {
       fontFamily: 'MontserratMedium',
       color: AppColors.whitecolor);
   static const TextStyle MontserratMedium3 = TextStyle(
-      fontSize: 13.0,
+      fontSize: 12.0,
+      fontFamily: 'MontserratMedium',
+      color: AppColors.darkgreycolor);
+
+
+  static const TextStyle MontserratMedium4 = TextStyle(
+      fontSize: 10.0,
       fontFamily: 'MontserratMedium',
       color: AppColors.darkgreycolor);
 
   static const TextStyle MontserratSemiBold = TextStyle(
-      fontSize: 13.0,
+      fontSize: 11.0,
       fontFamily: 'MontserratSemiBold',
       color: AppColors.darkgreycolor);
 
@@ -58,7 +70,7 @@ class TextStyles {
 
 
   static const TextStyle MontserratSemiBold2 = TextStyle(
-      fontSize: 15.0,
+      fontSize: 13.0,
       fontFamily: 'MontserratSemiBold',
       color: AppColors.darkgreycolor);
 
@@ -111,11 +123,42 @@ class TextStyles {
       fontFamily: 'MontserratBold',
       color: AppColors.darkgreycolor);
 
+  static const TextStyle MontserratBold9 = TextStyle(
+      fontSize: 9.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.greycolor);
+
+  static const TextStyle MontserratBold10 = TextStyle(
+      fontSize: 12.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.contcolor4);
+
+  static const TextStyle MontserratBold11 = TextStyle(
+      fontSize: 12.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.darkgreycolor);
+
+  static const TextStyle MontserratBold12 = TextStyle(
+      fontSize: 15.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.whitecolor);
+
+  static const TextStyle MontserratBold13 = TextStyle(
+      fontSize: 17.0,
+      fontFamily: 'MontserratBold',
+      color: AppColors.darkgreycolor);
+
 
   static const TextStyle MontserratLight = TextStyle(
       fontSize: 15.0,
       fontFamily: 'MontserratLight',
       color: AppColors.greycolor);
+
+  static const TextStyle MontserratLight1 = TextStyle(
+      fontSize: 20.0,
+      fontFamily: 'MontserratLight',
+      color: AppColors.contcolor5);
+
 
 
 //------------------------

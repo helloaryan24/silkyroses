@@ -28,7 +28,7 @@ class Welcome_Page extends StatelessWidget {
         ),
         alignment: Alignment.topCenter,
         child:Obx(() =>  Padding(
-          padding: const EdgeInsets.only(top: 40),
+          padding: const EdgeInsets.only(top: 100),
           child: AnimatedScale(
             scale: welcomeController.showLogo.value ? 1.0 : 0.0,
             duration: Duration(seconds: 1),

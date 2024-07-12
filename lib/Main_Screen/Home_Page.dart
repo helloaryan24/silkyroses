@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
@@ -105,20 +104,6 @@ class _Home_PageState extends State<Home_Page> {
         body: Container(
           width: screenSize.width,
           height: double.infinity,
-          // decoration: BoxDecoration(
-          //     gradient: LinearGradient(
-          //       begin: Alignment.topCenter,
-          //       end: Alignment.bottomCenter,
-          //       colors: <Color>[
-          //         AppColors.contcolor2,
-          //         AppColors.bgcolor,
-          //       ],
-          //   ),
-          //   // image: DecorationImage(
-          //   //   image: AssetImage(Images.loginbg),fit: BoxFit.cover,
-          //   //
-          //   // ),
-          // ),
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.only(top: 10, bottom: 20),
@@ -138,7 +123,8 @@ class _Home_PageState extends State<Home_Page> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                       child: TextField(
                         controller: _textEditingController,
                         focusNode: _focusNode,
@@ -154,7 +140,6 @@ class _Home_PageState extends State<Home_Page> {
                           fontSize: 15,
                           fontFamily: 'MontserratMedium',
                         ),
-
                         decoration: InputDecoration(
                           prefixIcon: IconButton(
                             onPressed: () {},
@@ -212,7 +197,8 @@ class _Home_PageState extends State<Home_Page> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Special Offer", style: TextStyles.MontserratSemiBold1),
+                        Text("Special Offer",
+                            style: TextStyles.MontserratSemiBold1),
                         Text("View all", style: TextStyles.MontserratBold4),
                       ],
                     ),
@@ -229,7 +215,8 @@ class _Home_PageState extends State<Home_Page> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Categories", style: TextStyles.MontserratSemiBold1),
+                        Text("Categories",
+                            style: TextStyles.MontserratSemiBold1),
                         GestureDetector(
                             onTap: () {
                               controller.gotoProductsPage();
@@ -263,15 +250,13 @@ class _Home_PageState extends State<Home_Page> {
                                       color: AppColors.imgbgcolor,
                                       boxShadow: [
                                         BoxShadow(
-                                          color: Colors.black38,
-                                          blurRadius: 2,
-                                          spreadRadius: 1
-                                        ),
+                                            color: Colors.black38,
+                                            blurRadius: 1,
+                                            spreadRadius: 1),
                                       ],
                                       border: Border.all(
-                                          width: 0.2,
-                                          color: AppColors.contcolor)
-                                  ),
+                                          width: 0.1,
+                                          color: AppColors.contcolor)),
                                   child: Padding(
                                     padding: const EdgeInsets.all(5.0),
                                     child: ClipRRect(
@@ -312,20 +297,19 @@ class _Home_PageState extends State<Home_Page> {
                   ),
                   SizedBox(height: 10),
                   Container(
-                    height: 210,
+                    height: 225,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: controller.imagelisturl.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: const EdgeInsets.all(6.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: GestureDetector(
                             onTap: () {
                               Get.toNamed('/products_details');
                             },
                             child: Container(
-                              // height: 60,
-                              width: 160,
+                              width: 140,
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 boxShadow: [
@@ -334,42 +318,87 @@ class _Home_PageState extends State<Home_Page> {
                                     blurRadius: 2,
                                   ),
                                 ],
-                                borderRadius: BorderRadius.circular(5),
-
+                                borderRadius: BorderRadius.circular(8),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 10, right: 10, top: 5, bottom: 0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Image.asset(
-                                      Images.homelistroseimg,
-                                      fit: BoxFit.cover,
-                                      height: 130,
-                                      width: 130,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Flexible(
-                                      child: Text(
-                                        'Bouquet “Autumn"',
-                                        style: TextStyles.MontserratSemiBold,
-                                        textAlign: TextAlign.center,
-                                        maxLines: 1,
-                                        // Allows text to wrap to a second line
-                                        overflow: TextOverflow
-                                            .visible, // Ensure text is fully shown
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 120,
+                                    alignment: Alignment.bottomRight,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      image: DecorationImage(
+                                        image:
+                                            AssetImage(Images.homelistroseimg),
                                       ),
                                     ),
-                                    Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text("₹ 150 ",
-                                            style: TextStyles.MontserratSemiBold2)),
-                                  ],
-                                ),
+                                    child: SizedBox(
+                                      height: 30,
+                                      width: 30,
+                                      child: ElevatedButton(
+                                        onPressed: () {},
+                                        child: Icon(
+                                          Icons.favorite,
+                                          size: 18,
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          shape: CircleBorder(),
+                                          elevation: 2,
+                                          padding: EdgeInsets.all(5),
+                                          backgroundColor: Colors.white,
+                                          foregroundColor: Colors.red,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 5),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 5, right: 5),
+                                    child: Text(
+                                      'Bouquet “Autumn"',
+                                      style: TextStyles.MontserratSemiBold,
+                                      textAlign: TextAlign.start,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.visible,
+                                    ),
+                                  ),
+                                  SizedBox(height: 5),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 5, right: 5),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("₹ 150 ",
+                                            style:
+                                                TextStyles.MontserratSemiBold2),
+                                        Row(
+                                          children: [
+                                            Text('(243)',
+                                                style:
+                                                    TextStyles.MontserratBold9),
+                                            Icon(Icons.star,
+                                                color: Colors.amber, size: 18),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(height: 5,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 5,right: 5),
+                                    child: CustomButton6(
+                                        text: "Add to cart",
+                                        backgroundColor:
+                                            AppColors.contcolor.withOpacity(0.3),
+                                        onTap: () {},
+                                        style: TextStyles.MontserratBold10),
+                                  )
+                                ],
                               ),
                             ),
                           ),
@@ -384,7 +413,8 @@ class _Home_PageState extends State<Home_Page> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Halloween theme", style: TextStyles.MontserratSemiBold1),
+                        Text("Halloween theme",
+                            style: TextStyles.MontserratSemiBold1),
                         GestureDetector(
                             onTap: () {
                               controller.gotoProductsPage();
@@ -396,21 +426,19 @@ class _Home_PageState extends State<Home_Page> {
                   ),
                   SizedBox(height: 10),
                   Container(
-                    height: 210,
-                    // color: Colors.transparent,
+                    height: 225,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: controller.imagelisturl.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: const EdgeInsets.all(6.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: GestureDetector(
                             onTap: () {
                               Get.toNamed('/products_details');
                             },
                             child: Container(
-                              // height: 60,
-                              width: 160,
+                              width: 140,
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 boxShadow: [
@@ -419,42 +447,87 @@ class _Home_PageState extends State<Home_Page> {
                                     blurRadius: 2,
                                   ),
                                 ],
-                                borderRadius: BorderRadius.circular(5),
-
+                                borderRadius: BorderRadius.circular(8),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 10, right: 10, top: 5, bottom: 0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Image.asset(
-                                      Images.homelistroseimg,
-                                      fit: BoxFit.cover,
-                                      height: 130,
-                                      width: 130,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Flexible(
-                                      child: Text(
-                                        'Bouquet “Autumn"',
-                                        style: TextStyles.MontserratSemiBold,
-                                        textAlign: TextAlign.center,
-                                        maxLines: 1,
-                                        // Allows text to wrap to a second line
-                                        overflow: TextOverflow
-                                            .visible, // Ensure text is fully shown
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 120,
+                                    alignment: Alignment.bottomRight,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      image: DecorationImage(
+                                        image:
+                                        AssetImage(Images.homelistroseimg),
                                       ),
                                     ),
-                                    Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text("₹ 150 ",
-                                            style: TextStyles.MontserratSemiBold2)),
-                                  ],
-                                ),
+                                    child: SizedBox(
+                                      height: 30,
+                                      width: 30,
+                                      child: ElevatedButton(
+                                        onPressed: () {},
+                                        child: Icon(
+                                          Icons.favorite,
+                                          size: 18,
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          shape: CircleBorder(),
+                                          elevation: 2,
+                                          padding: EdgeInsets.all(5),
+                                          backgroundColor: Colors.white,
+                                          foregroundColor: Colors.red,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 5),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 5, right: 5),
+                                    child: Text(
+                                      'Bouquet “Autumn"',
+                                      style: TextStyles.MontserratSemiBold,
+                                      textAlign: TextAlign.start,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.visible,
+                                    ),
+                                  ),
+                                  SizedBox(height: 5),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 5, right: 5),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("₹ 150 ",
+                                            style:
+                                            TextStyles.MontserratSemiBold2),
+                                        Row(
+                                          children: [
+                                            Text('(243)',
+                                                style:
+                                                TextStyles.MontserratBold9),
+                                            Icon(Icons.star,
+                                                color: Colors.amber, size: 18),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(height: 5,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 5,right: 5),
+                                    child: CustomButton6(
+                                        text: "Add to cart",
+                                        backgroundColor:
+                                        AppColors.contcolor.withOpacity(0.3),
+                                        onTap: () {},
+                                        style: TextStyles.MontserratBold10),
+                                  )
+                                ],
                               ),
                             ),
                           ),
@@ -469,7 +542,8 @@ class _Home_PageState extends State<Home_Page> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Halloween theme", style: TextStyles.MontserratSemiBold1),
+                        Text("Halloween theme",
+                            style: TextStyles.MontserratSemiBold1),
                         GestureDetector(
                             onTap: () {
                               controller.gotoProductsPage();
@@ -481,21 +555,19 @@ class _Home_PageState extends State<Home_Page> {
                   ),
                   SizedBox(height: 10),
                   Container(
-                    height: 210,
-                    // color: Colors.transparent,
+                    height: 225,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: controller.imagelisturl.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: const EdgeInsets.all(6.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: GestureDetector(
                             onTap: () {
                               Get.toNamed('/products_details');
                             },
                             child: Container(
-                              // height: 60,
-                              width: 160,
+                              width: 140,
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 boxShadow: [
@@ -504,42 +576,87 @@ class _Home_PageState extends State<Home_Page> {
                                     blurRadius: 2,
                                   ),
                                 ],
-                                borderRadius: BorderRadius.circular(5),
-
+                                borderRadius: BorderRadius.circular(8),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 10, right: 10, top: 5, bottom: 0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Image.asset(
-                                      Images.homelistroseimg,
-                                      fit: BoxFit.cover,
-                                      height: 130,
-                                      width: 130,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Flexible(
-                                      child: Text(
-                                        'Bouquet “Autumn"',
-                                        style: TextStyles.MontserratSemiBold,
-                                        textAlign: TextAlign.center,
-                                        maxLines: 1,
-                                        // Allows text to wrap to a second line
-                                        overflow: TextOverflow
-                                            .visible, // Ensure text is fully shown
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 120,
+                                    alignment: Alignment.bottomRight,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      image: DecorationImage(
+                                        image:
+                                        AssetImage(Images.homelistroseimg),
                                       ),
                                     ),
-                                    Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text("₹ 150 ",
-                                            style: TextStyles.MontserratSemiBold2)),
-                                  ],
-                                ),
+                                    child: SizedBox(
+                                      height: 30,
+                                      width: 30,
+                                      child: ElevatedButton(
+                                        onPressed: () {},
+                                        child: Icon(
+                                          Icons.favorite,
+                                          size: 18,
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          shape: CircleBorder(),
+                                          elevation: 2,
+                                          padding: EdgeInsets.all(5),
+                                          backgroundColor: Colors.white,
+                                          foregroundColor: Colors.red,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 5),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 5, right: 5),
+                                    child: Text(
+                                      'Bouquet “Autumn"',
+                                      style: TextStyles.MontserratSemiBold,
+                                      textAlign: TextAlign.start,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.visible,
+                                    ),
+                                  ),
+                                  SizedBox(height: 5),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 5, right: 5),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("₹ 150 ",
+                                            style:
+                                            TextStyles.MontserratSemiBold2),
+                                        Row(
+                                          children: [
+                                            Text('(243)',
+                                                style:
+                                                TextStyles.MontserratBold9),
+                                            Icon(Icons.star,
+                                                color: Colors.amber, size: 18),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(height: 5,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 5,right: 5),
+                                    child: CustomButton6(
+                                        text: "Add to cart",
+                                        backgroundColor:
+                                        AppColors.contcolor.withOpacity(0.3),
+                                        onTap: () {},
+                                        style: TextStyles.MontserratBold10),
+                                  )
+                                ],
                               ),
                             ),
                           ),

@@ -16,13 +16,13 @@ class TrackOrderPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.contcolor2,
         body: Padding(
-          padding: EdgeInsets.only(top: 30, bottom: 20, left: 10, right: 10),
+          padding: EdgeInsets.only(top: 10, bottom: 20, left: 10, right: 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CustomAppbarWidget(),
-              SizedBox(height: 20,),
+              SizedBox(height: 10,),
               Expanded(
                 child: Container(
                   width: screenSize.width,
@@ -58,7 +58,7 @@ class OrderCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: AppColors.whitecolor,
-      elevation: 3,
+      elevation: 2,
       margin: EdgeInsets.all(8.0),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -73,14 +73,14 @@ class OrderCard extends StatelessWidget {
                   children: [
                     Text(
                       'Estimated time: ${order.estimatedTime}',
-                      style: TextStyles.MerriLight4,
+                      style: TextStyles.MontserratRegular1,
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
                       'Order number: ${order.orderNumber}',
-                      style: TextStyles.MerriLight3,
+                      style: TextStyles.MontserratRegular1,
                     ),
                   ],
                 ),
@@ -105,19 +105,19 @@ class OrderCard extends StatelessWidget {
                   stepStyle: StepStyle(
                       color: AppColors.blackcolor,
                       border: Border.all(width: 1, color: AppColors.contcolor)),
-                  title: Text(status.status, style: TextStyles.Merriblack7),
+                  title: Text(status.status, style: TextStyles.MontserratBold4),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(status.description, style: TextStyles.Merriblack9),
+                      Text(status.description, style: TextStyles.MontserratMedium4),
                       Text(
                         '${status.date.hour}:${status.date.minute}AM - ${status.date.day} ${status.date.month}, ${status.date.year}',
-                        style: TextStyles.Merriblack9,
+                        style: TextStyles.MontserratSemiBold,
                       ),
                     ],
                   ),
                   content: Text("5 Step Complete after deliverd your order",
-                      style: TextStyles.MerriRegular2),
+                      style: TextStyles.MontserratSemiBold1),
                   isActive: true,
                   state: StepState.complete,
                 );
